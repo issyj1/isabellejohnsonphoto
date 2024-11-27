@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta content='width=device-width, initial-scale=1' name='viewport'/>
+
+    <title>Website practise</title>
+
+    <h1><a href="../index.html">Isabelle Johnson Photography</a></h1>
+
+    <link href="../test.css" rel="stylesheet"> 
+   <div>
+    <ul id="myUL">
+      <li class="caret">Portfolio</li>
+        <ul class="nested">
+          <li><a href="../HTML Pages/Charity.html">Charity</a></li>
+          <li><a href="HTML Pages/EE.html">EE</a></li>
+          <li><a href="HTML Pages/Portrait.html">Portrait</a></li>
+          <li><a href="HTML Pages/Events.html">Events</a></li>
+          <li><a href="HTML Pages/Wedding.html">Wedding</a></li>
+          <li><a href="HTML Pages/Creative.html">Creative</a></li>
+          <li><a href="HTML Pages/Fashion.html">Fashion</a></li>
+          <li><a href="HTML Pages/test.html">test</a></li>
+          <li><a href="test2.html">test2</a></li>
+
+        </ul>
+      </li>
+    </ul>
+    <ul id ="myUL">
+      <li class="caret">About</li>
+        <ul class="nested">
+          <li class="about">
+            I've been a photographer for the past 6 years. <br>
+            <br>
+            I have been lucky enough to work with some of the business's biggest brands and awarded agencies including Saatchi & Saatchi and EE. I specialise in commercial, charity and portraits. 
+            ​<br>
+            <br>
+            Having studied langauges at UCL, my obsession with people and places is a driver for my work.<br>
+            <br>
+            Please don't hesitate to contact me on:
+            isabellejohnson826@gmail.com</li>
+          </ul>    
+    </div>
+
+    <script >
+      function test(){
+        document.getElementById("footer").innerHTML="Portfolio / Charity ★";
+      }
+    </script>
+
+
+
+  </head>
+  <body onLoad="test()">
+
+      
+
+      <div id="img-swipe">
+        <img src="../img/leyf/431A1035.jpg">
+    </div>
+
+    <div id="cup-handle"></div>
+
+    <div id="transparent-white-sheet"></div>
+
+    <button onclick="myFunction()">Click Me</button>
+
+<div id="myDIV">
+</div>
+
+<script src="../caret.js"></script>
+
+  </body>
+  <footer id="footer">
+  © Isabelle Johnson
+  </footer>
+</html>
+
