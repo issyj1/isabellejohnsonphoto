@@ -130,10 +130,6 @@ li a{
     background-color: violet;
     margin-left: 20px;
   }
-
-  .nested li:active {
-      background-color: yellow;
-  }
  
 /* Style the caret/arrow */
 .caret {
