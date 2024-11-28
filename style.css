@@ -130,7 +130,8 @@ li a{
     background-color: violet;
     margin-left: 20px;
   }
- 
+
+
 /* Style the caret/arrow */
 .caret {
     cursor: pointer;
@@ -179,7 +180,30 @@ li a{
   ul.nested.active {
     padding-left: 10px;
   }
+
+
+
 /*galleries in section pages */
+
+/*ham menu - not displaying on desktop */
+
+.off-screen-menu {
+  display: none;
+
+}
+
+.off-screen-menu.active {
+  right: 0px;
+}
+
+nav {
+display: none;
+}
+
+/*ham menu test */
+
+
+
 
   .img-gallery {
     width: 80%;
@@ -355,7 +379,6 @@ ul, #myUL, li, .nested {
             margin: 0px;
           }
 
-
      h1 {
         display: block;
         width: 45%;
@@ -364,25 +387,109 @@ ul, #myUL, li, .nested {
         /*margin: auto;  */ 
         /*text-align: center;*/
      }
-     
+             /*turn off the side nav*/
 
-       li {
-            display: block;
-            /*margin: auto;  */ 
-            margin-top: 3px;
-            margin-left: 0px;
-
-        }
+     #myUL li {
+     }
 
 
+             /*end of turn off side nav*/
+
+/*ham menu test */
+
+.off-screen-menu {
+  background-color:rgba(224, 135, 253);
+  height: 100vh;
+  width: 100%;
+  max-width: 450px;
+  position: fixed;
+  top: 0;
+  right: -450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1.8rem;
+  transition: .3s ease;
+}
+
+.off-screen-menu.active {
+  right: 0px;
+}
+
+nav {
+padding: 1rem;
+display: flex;
+width: 70px;
+background-color: rgba(255, 217, 0 / 50%);
+border-radius: 20px;
+}
+
+.ham-menu {
+height: 40px;
+width: 40px;
+top: -10px;
+right: 0px;
+position: relative;
+}
+
+.ham-menu span {
+height: 5px;
+width: 100%;
+background-color: lightgray;
+border-radius: 25px;
+position: absolute;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+transition: .3s ease;
+}
+
+.ham-menu span:nth-child(1) {
+top: 25%;
+}
+
+.ham-menu span:nth-child(3) {
+top: 75%;
+}
+
+.ham-menu.active span:nth-child(1) {
+top: 50%;
+transform: translate(-50%, 50%) rotate(-45deg);
+}
+
+.ham-menu.active span:nth-child(2) {
+opacity: 0;
+}
+
+.ham-menu.active span:nth-child(3) {
+top: 50%;
+transform: translate(-50%, 50%) rotate(45deg);
+}
+
+.off-screen-menu #off-screen-nested {
+font-size: 0.5em;
+text-align: center;
+align-items: center;
+padding-left: 0px;
+}
+
+#myUL li {
+  display: none;
+}
+
+/*
         ul, #myUL {
             display: block;
             z-index: 99;
             margin-left: 0px;
             padding-left: 7px;
 
-            /*margin: auto;  */ 
+            /*margin: auto;   
         }
+*/
+
         #footer {
             display: block;
             z-index: 999;
@@ -399,9 +506,9 @@ ul, #myUL, li, .nested {
         .img-gallery, .img-gallery-portrait {
           margin-top: 5%;
           z-index: -1;
-  padding-bottom: 50px;
-  background-color: #fafafa;
-              top: 23%;
+          padding-bottom: 50px;
+          background-color: #fafafa;
+          top: 23%;
       }
         
 
