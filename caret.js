@@ -37,6 +37,18 @@ var items = document.getElementsByClassName("fade-item");
     }, delay)
   }
 
+  /*ham menu*/
+
+const hamMenu = document.querySelector('.ham-menu');
+
+const offScreenMenu = document.querySelector('.off-screen-menu');
+
+hamMenu.addEventListener('click', () => {
+  hamMenu.classList.toggle('active');
+  offScreenMenu.classList.toggle('active');
+})
+
+
 /* slideshow */
 
   let slideIndex = 1;
@@ -62,13 +74,3 @@ function showSlides(n) {
 
 
 
-/*ham menu*/
-
-const hamMenu = document.querySelector('.ham-menu');
-
-const offScreenMenu = document.querySelector('.off-screen-menu');
-
-hamMenu.addEventListener('click', () => {
-  hamMenu.classList.toggle('active');
-  offScreenMenu.classList.toggle('active');
-})
