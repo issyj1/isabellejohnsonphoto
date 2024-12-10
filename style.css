@@ -221,7 +221,7 @@ display: none;
        width: 90%;
        padding-bottom: 5%;
        z-index: -1;
-
+    -webkit-filter: drop-shadow(1px 1px 1px #aaaaaa);
     }
 
 /* next click gallery */
@@ -235,6 +235,10 @@ display: none;
   top: 25px;
   margin-right: 0;
   border-right: 0px;
+}
+
+.slideshow-container img{
+-webkit-filter: drop-shadow(1px 1px 1px #aaaaaa);
 }
 
 .container {
