@@ -33,7 +33,7 @@ body {
     padding-left: 10px;
     padding-top: 4px;
     padding-bottom: 4px;
-    width: 165px !important;
+    width: 165px;
     margin-bottom: 5px;
     cursor: grab;
     position: sticky;
