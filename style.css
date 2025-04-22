@@ -228,25 +228,22 @@ display: none;
 
 
 
-  .img-gallery {
-    width: 80%;
-    margin-left: 25%;
-    position: absolute;
-    margin-right: 0;
-    border-right: 0px;
-    top: 25px;
-    display: inline-block;
-    z-index: -1;
-    overflow: hidden;
+.img-gallery {
+  display: flex; 
+  flex-wrap: wrap; 
+  justify-content: center; 
+  margin: 0; /* Reset any margin */
+  padding: 0; /* Reset padding */
+  width: 100%; /* Full width */
+  box-sizing: border-box; /* Ensure proper size calculations */
+}
 
-  }
-    
-    .img-gallery img {
-       width: 90%;
-       padding-bottom: 5%;
-       z-index: -1;
-    -webkit-filter: drop-shadow(1px 1px 1px #aaaaaa);
-    }
+.img-gallery img {
+  width: 100%; /* Make sure images fit within their container */
+  max-width: 100%; /* Prevent images from overflowing */
+  padding: 0; /* Remove any padding */
+  margin: 0; /* Reset margin */
+}
 
 /* next click gallery */
 
