@@ -228,18 +228,17 @@ display: none;
 
 
 
-.img-gallery {
-  display: block; 
-  flex-wrap: wrap; 
-  justify-content: center; 
-  margin: 0; /* Reset any margin */
-  padding: 0; /* Reset padding */
-  width: 100%; /* Full width */
-  box-sizing: border-box; /* Ensure proper size calculations */
+  .img-gallery {
+     display: flex; 
+    width: 100%;
+    margin: auto;
+    padding-left: 3%;
+    padding-bottom: 5%;
+    margin-right: 0;
+    margin-top: 176px;
     z-index: -1;
-    top: 25px;
-position: absolute;
-}
+    box-sizing: border-box;
+  }
 
 .img-gallery img {
   width: 100%; /* Make sure images fit within their container */
