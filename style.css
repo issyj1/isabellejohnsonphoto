@@ -447,6 +447,11 @@ ul, #myUL, li, .nested {
           box-sizing: border-box;
         }
 
+               .testimonials {
+          margin-left: 10px;
+          width: 100%;
+        }
+            
         .img-gallery, .img-gallery-portrait {
           margin-top: 5%;
           z-index: -1;
