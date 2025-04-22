@@ -238,7 +238,7 @@ display: none;
   box-sizing: border-box; /* Ensure proper size calculations */
     z-index: -1;
     top: 25px;
-
+overflow:scroll;
 }
 
 .img-gallery img {
