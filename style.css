@@ -237,7 +237,6 @@ display: none;
   width: 100%; /* Full width */
   box-sizing: border-box; /* Ensure proper size calculations */
     z-index: -1;
-    position: absolute;
     top: 25px;
 
 }
