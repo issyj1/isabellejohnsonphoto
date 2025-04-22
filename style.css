@@ -314,6 +314,8 @@ WHY NOT WORKING?*/
 
 #img-gallery-portrait img {
   width: 500px;
+  -webkit-filter: drop-shadow(1px 1px 1px #aaaaaa);
+
 }
 
 
