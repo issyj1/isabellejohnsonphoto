@@ -229,7 +229,7 @@ display: none;
 
 
   .img-gallery {
-     display: flex; 
+    display: inline-block;
     width: 100%;
     margin: auto;
     padding-left: 3%;
@@ -237,7 +237,7 @@ display: none;
     margin-right: 0;
     margin-top: 176px;
     z-index: -1;
-    box-sizing: border-box;
+
   }
 
 .img-gallery img {
