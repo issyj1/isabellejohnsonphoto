@@ -185,25 +185,32 @@ li a{
 /*testimonials section */
 
  .testimonials {
-    display: grid;
-    align-items: center; 
-    column-gap: 5px;
-    margin-left: 30px;
+    display: inline-block;
     position: absolute;
-    margin-right: 0;
-    border-right: 0px;
-    top: 210px;
+    top: 5px;
+    right: 5px;
     z-index: -1;
        overflow: hidden;
-
+       align-items: center;
+       justify-content: center;
+       padding: 5px;
   }
 
-  .img-gallery-testimonials img, .text {
-    width: 80%;
+ .text {
+  padding-right: 15px;
+  padding-top: 10px;
   }
+
+  
 
   .testimonials h3{
    color: rgb(0, 195, 255);
+  }
+
+  .img-gallery-testimonials img{
+   width: 60%;
+float: left; 
+padding-right: 10px;  
   }
 
 /*galleries in section pages */
