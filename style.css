@@ -233,11 +233,14 @@ display: none;
   z-index: -1;
   width: 700px;
   margin-left: 35%;
-  position: absolute;
   top: 25px;
   margin-right: 0;
   border-right: 0px;
+    display: grid;
+    align-items: center; 
 
+    column-gap: 5px;
+    position: absolute;
   }
 
 .img-gallery img {
