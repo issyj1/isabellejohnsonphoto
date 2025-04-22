@@ -181,7 +181,23 @@ li a{
     padding-left: 10px;
   }
 
+/*testimonials section */
 
+  .testimonials {
+    display: grid;
+    align-items: center; 
+    column-gap: 5px;
+    margin-left: 30px;
+
+  }
+
+  .img-gallery-testimonials img, .text {
+    width: 80%;
+  }
+
+  .testimonials h3{
+   color: rgb(0, 195, 255);
+  }
 
 /*galleries in section pages */
 
