@@ -317,6 +317,8 @@ WHY NOT WORKING?*/
 #img-gallery-portrait {
   width: 500px;
   margin-left: 35%;
+ overflow: hidden;
+
 }
 
 #img-gallery-portrait img {
