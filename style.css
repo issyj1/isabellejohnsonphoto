@@ -235,8 +235,8 @@ display: none;
     padding-left: 3%;
     padding-bottom: 5%;
     margin-right: 0;
-    margin-top: 176px;
-    z-index: -1;
+    top: 10px;
+      z-index: -1;
 
   }
 
