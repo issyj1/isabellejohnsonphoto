@@ -458,7 +458,7 @@ ul, #myUL, li, .nested {
           width: 100%;
         }
             
-        .img-gallery, .img-gallery-portrait {
+        .img-gallery-portrait {
           margin-top: 5%;
           z-index: -1;
           padding-bottom: 50px;
