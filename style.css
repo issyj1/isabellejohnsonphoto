@@ -1,3 +1,4 @@
+
 * {box-sizing:border-box}
 
 body {
@@ -8,6 +9,7 @@ body {
     margin: 0;
     overflow-x: hidden;
     max-width: 1000px;
+    overscroll-behaviour: none;
   }
   
   main {
@@ -27,7 +29,7 @@ body {
     display: block;
     color: white;
     font-weight: bold;
-    background-color:#e087fd;
+    background-color:rgb(224, 135, 253);
     border-radius: 20px;
     padding-right: 12px;
     padding-left: 10px;
@@ -181,9 +183,8 @@ li a{
     padding-left: 10px;
   }
 
-/*testimonials section */
 
- .testimonials {
+  .testimonials {
     display: grid;
     align-items: center; 
     column-gap: 5px;
@@ -193,8 +194,6 @@ li a{
     border-right: 0px;
     top: 210px;
     z-index: -1;
-       overflow: hidden;
-
   }
 
   .img-gallery-testimonials img, .text {
@@ -203,6 +202,35 @@ li a{
 
   .testimonials h3{
    color: rgb(0, 195, 255);
+  }
+
+  /*galleries in section pages */
+
+
+  .backgroundtest {
+    background-color:rgba(224, 135, 253, 0.5);
+    height: 100vh;
+    width: 100%;
+    max-width: 450px;
+    position: fixed;
+    top: 0;
+    display: none;
+    font-size: 1.8rem;
+    transition: .3s ease;
+    z-index: -1;
+  }
+
+  .backgroundtest.active {
+    background-color:rgba(224, 135, 253, 0.5);
+    height: 100vh;
+    width: 100%;
+    max-width: 450px;
+    position: fixed;
+    top: 0;
+    display: flex;
+    font-size: 1.8rem;
+    transition: .3s ease;
+    z-index: -1;
   }
 
 /*galleries in section pages */
@@ -236,7 +264,6 @@ display: none;
     top: 25px;
     display: inline-block;
     z-index: -1;
-    overflow: hidden;
 
   }
     
@@ -244,7 +271,8 @@ display: none;
        width: 90%;
        padding-bottom: 5%;
        z-index: -1;
-    -webkit-filter: drop-shadow(1px 1px 1px #aaaaaa);
+       -webkit-filter: drop-shadow(1px 1px 1px #aaaaaa);
+
     }
 
 /* next click gallery */
@@ -258,10 +286,13 @@ display: none;
   top: 25px;
   margin-right: 0;
   border-right: 0px;
+
 }
 
-.slideshow-container img{
+.slideshow-container img {
 -webkit-filter: drop-shadow(1px 1px 1px #aaaaaa);
+transition: opacity 2s ease-out;
+
 }
 
 .container {
@@ -277,7 +308,6 @@ display: none;
   color: white;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 20px;
-  transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
   user-select: none;
 
@@ -288,7 +318,8 @@ display: none;
     padding-right: 200px;
     padding-top: 610px;
     padding-left: 4px;
-    background-color:rgba(255, 217, 0 /50%);
+    background-color: pink;
+  color: yellow;
   }
 /* Position the "next button" to the right 
 WHY NOT WORKING?*/
@@ -297,7 +328,8 @@ WHY NOT WORKING?*/
     padding-left: 200px;
     padding-top: 610px;
     padding-right: 4px;
-    background-color:rgba(255, 217, 0 /50%);
+    background-color:rgba(255, 217, 0 /50%)
+    ;
 
 }
 
@@ -317,14 +349,10 @@ WHY NOT WORKING?*/
 #img-gallery-portrait {
   width: 500px;
   margin-left: 35%;
- overflow: hidden;
-
 }
 
 #img-gallery-portrait img {
   width: 500px;
-  -webkit-filter: drop-shadow(1px 1px 1px #aaaaaa);
-
 }
 
 
@@ -452,11 +480,11 @@ ul, #myUL, li, .nested {
           box-sizing: border-box;
         }
 
-               .testimonials {
+        .testimonials {
           margin-left: 10px;
           width: 100%;
         }
-            
+
         .img-gallery, .img-gallery-portrait {
           margin-top: 5%;
           z-index: -1;
@@ -517,7 +545,7 @@ ul, #myUL, li, .nested {
 
 
 .fade-item {
-  transition: 0.1s all ease-in-out;
+  transition: 0.1s;
   opacity: 0;
 }
 
@@ -537,13 +565,13 @@ ul, #myUL, li, .nested {
 }
 
 
-$total-items: 7;
+$total-items: 6;
 
 
 li {
   position: relative;
   display: block;
-  animation: fadeIn 0.5s linear;
+  animation: 0.5s linear;
   animation-fill-mode: both;
 }
 
@@ -553,6 +581,7 @@ li {
     animation-delay: 0s * $i;
   }
 } 
+
 
 
 
