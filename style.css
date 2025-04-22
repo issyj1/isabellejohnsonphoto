@@ -193,6 +193,8 @@ li a{
     border-right: 0px;
     top: 210px;
     z-index: -1;
+       overflow: hidden;
+
   }
 
   .img-gallery-testimonials img, .text {
