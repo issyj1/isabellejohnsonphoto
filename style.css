@@ -247,13 +247,14 @@ display: none;
     align-items: center; 
     column-gap: 5px;
     position: absolute;
+      
   }
 
 .img-gallery img {
   width: 100%; /* Make sure images fit within their container */
   max-width: 100%; /* Prevent images from overflowing */
   padding: 0; /* Remove any padding */
-    margin-bottom: 5px;
+    margin-bottom: 10px;
 
 }
 
