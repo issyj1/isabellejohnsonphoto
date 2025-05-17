@@ -302,8 +302,6 @@ display: none;
     display: block;
     z-index: -1;
     overflow: hidden;
-    position: fixed;
-
   }
     
     .img-gallery img {
