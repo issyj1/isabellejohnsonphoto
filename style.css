@@ -558,7 +558,18 @@ ul, #myUL, li, .nested {
   }
   
   
+ /* img gallery */
+ .container {
+    top: 1%;
+    width: 150%;
+    padding: 5%;
+    margin: 0 auto;
+}
 
+
+.slideshow-container {
+  top: 1%;
+}
 
       .mySlides fade {
         margin: 0;
