@@ -547,13 +547,21 @@ ul, #myUL, li, .nested {
 
        
 
-        /* Next & previous buttons */
   .prev, .next {
     width: 1%;
     bottom: 0.3%;
-    color: white;
     font-size: 20px;
+    z-index: 20;
   }
+  
+  .next {
+    padding-left: 0;
+margin-top: 10px;
+    margin: 0;
+    padding-top: 710px;
+  }
+  
+
   
   
  /* img gallery */
