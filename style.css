@@ -185,7 +185,7 @@ li a{
 
   /*overlay test */
 .overlay {
-  background-color: rgba(250, 250, 250, 0.8);  /* This might be causing the background color */
+  background-color: rgba(250, 250, 250, 0.7);  /* This might be causing the background color */
   height: 100vh;
   width:100%;
   top: 0;
