@@ -342,7 +342,10 @@ display: none;
   padding-bottom: 25px;
 }
 
+.container img:hover{
+  transform: scale(1.02) translateY(-5px);
 
+}
 
 
 /* Next & previous buttons */
