@@ -569,6 +569,14 @@ margin-top: 10px;
   
  /* img gallery */
 
+             .container {
+    top: 5%;
+    width: 100%;
+    padding: 5%;
+    margin: 0 auto;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+}
+
 
 .slideshow-container {
   top: 1%;
