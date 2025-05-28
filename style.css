@@ -329,9 +329,19 @@ display: none;
 -webkit-filter: drop-shadow(1px 1px 1px #aaaaaa);
 }
 
+/* image grid on index page */
 .container {
-    display: inline-block;
+  z-index: -100;
+  display: grid;
+  position: absolute;
+  top: 25px;
+  margin-right: 0;
+  grid-template-columns: 1fr 1fr 1fr; /* three equal columns */
+  gap: 30px; /* Horizontal gap between the columns */
+  margin: 20px;
+  padding-bottom: 25px;
 }
+
 
 
 
@@ -458,14 +468,7 @@ ul, #myUL, li, .nested {
             width: 500px;
             z-index: 3;
         }
-        .slideshow-container, .container {
-          top: -10%;
-          width: 170%;
-          margin-left: -1%;
-          margin-right: -1%;
-          padding: 5;
-          
-      }
+      
 
       }
         @media only screen and (max-width: 430px) {
@@ -565,11 +568,6 @@ margin-top: 10px;
   
   
  /* img gallery */
- .container {
-    top: 1%;
-    width: 100%;
-    margin: 0 auto;
-}
 
 
 .slideshow-container {
