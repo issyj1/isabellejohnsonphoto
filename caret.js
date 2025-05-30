@@ -1,12 +1,39 @@
-var toggler = document.getElementsByClassName("caret");
-var i;
+document.addEventListener("DOMContentLoaded", () => {
+  const togglers = document.querySelectorAll(".caret");
+  const overlays = {
+    about: document.getElementById("about-overlay"),
+    contact: document.getElementById("contact-overlay")
+  };
 
-for (i = 0; i < toggler.length; i++) {
-  toggler[i].addEventListener("click", function() {
-        this.parentElement.querySelector(".nested").classList.toggle("active");
-        this.classList.toggle("caret-down");
+  togglers.forEach(toggler => {
+    toggler.addEventListener("click", function () {
+      // Close all other dropdowns
+      document.querySelectorAll(".nested").forEach(nested => {
+        if (nested !== this.nextElementSibling) {
+          nested.classList.remove("active");
+        }
+      });
+      document.querySelectorAll(".caret").forEach(c => {
+        if (c !== this) {
+          c.classList.remove("caret-down");
+        }
+      });
+
+      // Toggle this dropdown
+      this.classList.toggle("caret-down");
+      const nested = this.nextElementSibling;
+      if (nested) nested.classList.toggle("active");
+
+      // Handle overlays
+      const isAbout = this.id === "about-toggle";
+      const isContact = this.id === "contact-toggle";
+
+      overlays.about.classList.toggle("show", isAbout && nested.classList.contains("active"));
+      overlays.contact.classList.toggle("show", isContact && nested.classList.contains("active"));
+    });
   });
-}
+});
+
 
 
 
