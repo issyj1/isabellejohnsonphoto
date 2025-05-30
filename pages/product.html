@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta content='width=device-width, initial-scale=1' name='viewport'/>
+      
+      <title>Isabelle Johnson Photography</title>
+
+      <link rel="shortcut icon" type="image/png" href="../svg/SDG_logo.png">
+
+      <link rel="stylesheet" href="../normalize.css">
+      <link href="../style.css" rel="stylesheet"> 
+  
+    </head>
+    <body onLoad="test()">
+  
+    <h1><a href="../index.html">Isabelle Johnson Photography</a></h1>
+  
+  
+    <div>
+      <ul id="myUL">
+        <li  class="caret">Portfolio</li>
+          <ul class="nested">
+             <li class="fade-item"><a href="../pages/portrait.html">Portrait</a></li>
+             <li class="fade-item"><a href="../pages/fashion.html">Fashion</a></li>
+            <li class="fade-item"><a href="../pages/ee.html">EE</a></li>
+            <li class="fade-item"><a href="../pages/commissioned.html">Charity</a></li>
+            <li class="fade-item"><a href="../pages/flowers.html">Dutch Flowers</a></li>
+            <li class="fade-item"><a href="../pages/events.html">Events</a></li>
+            <li class="fade-item"><a href="../pages/creative.html">Creative</a></li>
+          </ul>
+      </ul>
+    <ul id ="myUL" onclick="toggleMenu()">
+        <li class="caret">About</li>
+          <ul class="nested">
+            <li class="about" class="fade-item">
+            I have worked as a photographer for the past six years, collaborating with some of the biggest brands and creative agencies, including Saatchi & Saatchi and EE. My work has been featured on major advertising platforms and in leading publications. <br>
+            <br>
+            Having studied languages at UCL, my obsession with people and places has led to a diverse portfolio of work. I approach every project at full velocity – each is an opportunity to create something unique. <br>
+            <br>
+            My experience as an advertising creative means I am always looking for the "why" behind every image. 
+            <br>
+          </li>
+            </ul> 
+      </ul> 
+    <ul id ="myUL" onclick="toggleMenu()">
+              <li class="caret">Contact</li>
+                <ul class="nested">
+                  <li class="about" class="fade-item">
+                  
+                    Please don't hesitate to contact me at:
+                    <b>isabelle@isabellejohnsonphoto.com</b>
+                    <br>
+                    I am able to give custom quotes based on the specific requirements of every project.
+                    <br>
+                    <br>
+                    Follow me on Instagram:                   
+                  <br>
+                    
+                    <a href="https://www.instagram.com/issyj1/?hl=en-gb" target="_blank">issyj1</a>
+                  </li>
+                  </ul>  
+              </ul>
+                    <ul id="myUL">
+              <li  class="caret"><a href="../pages/testimonials.html">Testimonials</a></li>
+            </ul>
+      </div>
+ 
+    <script >
+      function test(){
+        document.getElementById("footer").innerHTML="Portfolio / Fashion ★";
+      }
+    </script>
+
+    <!-- Ham menu test -->
+
+      <div class="off-screen-menu">
+        <ul>
+          <ul id="myUL2">
+          <li class ="caret">Portfolio</li>
+            <ul class="nested">
+                <li class="fade-item"><a href="../pages/commissioned.html">Commissioned</a></li>
+                <li class="fade-item"><a href="../pages/portrait.html">Portrait</a></li>
+              <li class="fade-item"><a href="../pages/charity.html">NGO</a></li>
+              <li class="fade-item"><a href="../pages/fashion.html">Fashion</a></li>
+              <li class="fade-item"><a href="../pages/ee.html">EE</a></li>
+              <li class="fade-item"><a href="../pages/events.html">Events</a></li>
+              <li class="fade-item"><a href="../pages/creative.html">Creative</a></li>
+               <li class="fade-item"><a href="../pages/product.html">Product</a></li>
+
+        </ul>
+        <ul id ="myUL2">
+          <li class="caret">About</li>
+          <ul class="nested">
+            <li class="about" class="fade-item" id="off-screen-nested">
+              I am an award-winning photographer and have been lucky enough to work with some of the business's biggest brands and creative agencies including Saatchi & Saatchi and EE.<br>
+              <br>
+              Having studied languages at UCL, my obsession with people and places has led to a diverse portfolio of work.<br>
+              <br>
+              My experience as an advertising creative means I am always looking for the "why" behind every image.
+              I specialise in commercial, fashion and portrait photography. 
+              <br>
+          </li>
+            </ul> 
+        <ul id ="myUL2">
+              <li class="caret">Contact </li>
+                <ul class="nested">
+                  <li class="about" class="fade-item" id="off-screen-nested">
+                  
+                    Please don't hesitate to contact me at:
+                    <b>isabelle@isabellejohnsonphoto.com</b>
+                    <br>
+                    I am able to give custom quotes based on the specific requirements of every project.
+                    <br>
+                    <br>
+                    Follow me on Instagram:                   
+                  <br>
+                    <a href="https://www.instagram.com/issyj1/?hl=en-gb" target="_blank">issyj1</a>
+                  </li>
+          </ul>  
+        </ul>
+      
+      </div>
+      
+      
+      <nav>
+        <div class ="ham-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </nav>
+
+      
+
+      <div class="img-gallery"> 
+
+                  <img src="../img/product/431A7853.jpg" alt="portrait of brunette model against orange door outside">
+                  <img src="../img/product/431A7861.jpg" alt="portrait of brunette model against orange door outside">
+                  <img src="../img/product/431A7868.jpg" alt="portrait of brunette model against orange door outside">
+
+                  <img src="../img/product/431A7881.jpg" alt="portrait of brunette model against orange door outside">
+
+          
+    </div>
+
+    <script src="../caret.js"></script>
+
+    <div class="overlay"></div>
+
+  </body>
+  <footer id="footer">
+  © Isabelle Johnson
+  </footer>
+</html>
