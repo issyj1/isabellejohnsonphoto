@@ -185,18 +185,18 @@ li a{
 
   /*overlay test */
 .overlay {
-  background-color: rgba(250, 250, 250, 0.7);  /* This might be causing the background color */
+  background-color: rgba(250, 250, 250, 0.8);  /* This might be causing the background color */
   height: 100vh;
   width:100%;
   top: 0;
-  right:-1800px;  
+  right:-1000px;  
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   font-size: 1.8rem;
-  transition: 0s ease;
+  transition: 0.5s ease;
   z-index: -1;
   position: fixed;
 }
