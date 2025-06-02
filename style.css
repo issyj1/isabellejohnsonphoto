@@ -241,6 +241,7 @@ li a{
    width: 60%;
 float: left; 
 padding-right: 10px;  
+      z-index: -500;
   }
 
 
