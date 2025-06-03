@@ -222,11 +222,13 @@ li a{
     top: 0px;
     right: 5px;
     z-index: -500;
+     
        overflow: hidden;
        align-items: center;
        justify-content: center;
        padding: 5px;
-       font-family: Helvetica ;
+    font-family: "Helvetica Neue";
+    
       padding: 10%;
   }
 
