@@ -214,24 +214,31 @@ li a{
 
 /*testimonials section */
 
+
  .testimonials {
     display: inline-block;
     position: absolute;
-    top: 5px;
+    top: 0px;
     right: 5px;
     z-index: -500;
        overflow: hidden;
        align-items: center;
        justify-content: center;
        padding: 5px;
+       font-family: Helvetica ;
+      padding: 10%;
   }
 
  .text {
   padding-right: 15px;
-  padding-top: 10px;
+  top: 0;
   }
 
+.text h2 {
+  margin: 0;
+}
   
+
 
   .testimonials h3{
    color: rgb(0, 195, 255);
@@ -240,8 +247,11 @@ li a{
   .img-gallery-testimonials img{
    width: 60%;
 float: left; 
-padding-right: 10px;  
-      z-index: -500;
+padding-right: 15px;
+  }
+
+  .img-gallery-testimonials img:hover{
+    transform: perspective(500px) rotateX(10deg) rotateY(10deg) translateY(-10px);
   }
 
 
