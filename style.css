@@ -316,12 +316,12 @@ div#slide1.slide, div#slide2.slide {
 }
 
 #prevBtn {
-  left: 50%;
+  left: 40%;
   transform: translateX(-100%);
 }
 
 #nextBtn {
-  left: 50%;
+  left: 60%;
   transform: translateX(-100%);
 }
 
