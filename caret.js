@@ -87,3 +87,94 @@ var items = document.getElementsByClassName("fade-item");
       item.classList.add('fadein')
     }, delay)
   }
+
+
+
+/* images overflow slideshow */
+const gallery = document.getElementById('img-gallery-portrait');
+const images = Array.from(gallery.querySelectorAll('img')).map(img => img.src);
+
+let currentIndex = 0;
+
+const slide1 = document.getElementById('slide1');
+const slide2 = document.getElementById('slide2');
+
+const offscreenRight = 'translate(-50%, -50%) translateX(120vw) perspective(600px) rotateX(10deg) rotateY(30deg) translateY(-30px)';
+const offscreenLeft  = 'translate(-50%, -50%) translateX(-100vw) perspective(600px) rotateX(10deg) rotateY(30deg) translateY(-30px)';
+const centered       = 'translate(-50%, -50%) translateX(0)';
+
+// Initial setup - no transition
+slide1.style.transition = 'none';
+slide2.style.transition = 'none';
+
+slide1.style.backgroundImage = `url('${images[currentIndex]}')`;
+slide1.style.transform = centered;
+slide2.style.transform = offscreenRight;
+
+void slide1.offsetWidth;
+void slide2.offsetWidth;
+
+slide1.style.transition = 'transform 0.6s ease';
+slide2.style.transition = 'transform 0.6s ease';
+
+let isSlide1Visible = true;
+
+function nextSlide() {
+  const nextIndex = (currentIndex + 1) % images.length;
+  slideTransition(nextIndex, true);
+}
+
+function prevSlide() {
+  const prevIndex = (currentIndex - 1 + images.length) % images.length;
+  slideTransition(prevIndex, false);
+}
+
+function slideTransition(targetIndex, forward = true) {
+  if (isSlide1Visible) {
+    if (forward) {
+      slide2.style.backgroundImage = `url('${images[targetIndex]}')`;
+      slide2.style.transition = 'none';
+      slide2.style.transform = offscreenRight;
+    } else {
+      slide2.style.backgroundImage = `url('${images[targetIndex]}')`;
+      slide2.style.transition = 'none';
+      slide2.style.transform = offscreenLeft;
+    }
+
+    void slide2.offsetWidth; // force reflow
+
+    slide1.style.transition = 'transform 0.6s ease';
+    slide2.style.transition = 'transform 0.6s ease';
+
+    slide1.style.transform = forward ? offscreenLeft : offscreenRight;
+    slide2.style.transform = centered;
+
+    isSlide1Visible = false;
+  } else {
+    if (forward) {
+      slide1.style.backgroundImage = `url('${images[targetIndex]}')`;
+      slide1.style.transition = 'none';
+      slide1.style.transform = offscreenRight;
+    } else {
+      slide1.style.backgroundImage = `url('${images[targetIndex]}')`;
+      slide1.style.transition = 'none';
+      slide1.style.transform = offscreenLeft;
+    }
+
+    void slide1.offsetWidth; // force reflow
+
+    slide1.style.transition = 'transform 0.6s ease';
+    slide2.style.transition = 'transform 0.6s ease';
+
+    slide2.style.transform = forward ? offscreenLeft : offscreenRight;
+    slide1.style.transform = centered;
+
+    isSlide1Visible = true;
+  }
+
+  currentIndex = targetIndex;
+}
+
+document.getElementById('nextBtn').addEventListener('click', nextSlide);
+document.getElementById('prevBtn').addEventListener('click', prevSlide);
+
