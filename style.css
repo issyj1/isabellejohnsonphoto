@@ -313,7 +313,8 @@ div#slide1.slide, div#slide2.slide {
   border: 1px;
   border-radius: 4px;
   transition: background-color 0.3s ease;
-  z-index: 10;
+z-index: -20;
+
 }
 
 #prevBtn {
