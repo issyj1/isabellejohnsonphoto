@@ -632,7 +632,7 @@ ul, #myUL, li, .nested {
 
         .hamburger {
           position: fixed;
-          top: 12%;
+          top: 14%;
           left: 2%;
           font-size: 1.3em;
           z-index: 1100;
@@ -655,7 +655,7 @@ ul, #myUL, li, .nested {
         .mobile-menu {
           display: block;
           position: absolute;
-          top: 14%; /* or below your header */
+          top: 17%; /* or below your header */
           left: -5%;
           width: 100%;
           padding: 20px;
