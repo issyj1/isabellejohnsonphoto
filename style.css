@@ -358,10 +358,20 @@ z-index: 10;
 
   .btn {
     bottom: 55px; /* raise buttons higher on small screens */
-    font-size: 9px;
-    padding: 6px 16px;
-
+    font-size: 10px;
+    padding: 6px 16px;    
   }
+
+     #prevBtn {
+    left: 30%;
+    transform: translateX(-100%);
+  }
+  
+  #nextBtn {
+    left: 50%;
+    transform: translateX(-100%);
+  }
+
 }
   
 
