@@ -52,6 +52,28 @@ for (let i = 0; i < toggler.length; i++) {
 }
 
 
+// Your existing caret + overlay toggle JS
+var toggler = document.getElementsByClassName("caret");
+var overlay = document.querySelector('.overlay');
+
+const menuToggle = document.getElementById("menuToggle");
+const mobileMenu = document.getElementById("mobileMenu");
+
+menuToggle.addEventListener("click", () => {
+  mobileMenu.classList.toggle("hidden");
+  menuToggle.classList.toggle('rotate');
+
+
+  // Hide overlay whenever menu toggles
+  overlay.classList.remove("show");
+  // Reset all nested menus (close them)
+  const allNested = document.querySelectorAll(".nested");
+  allNested.forEach(nested => nested.classList.remove("active"));
+
+  // Remove all caret-down classes
+  const allCarets = document.querySelectorAll(".caret");
+  allCarets.forEach(caret => caret.classList.remove("caret-down"));
+});
 
 
 /*const nestedAbout = document.querySelector("h1");
