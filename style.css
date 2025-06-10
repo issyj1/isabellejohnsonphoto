@@ -529,6 +529,10 @@ z-index: -500;
     
 }
 
+.mobile-menu, .hamburger {
+  display: none;
+}
+
 /*test for the array  image slider */
 
 
@@ -619,21 +623,65 @@ ul, #myUL, li, .nested {
      }
      
 
-       li {
-            /*margin: auto;  */ 
-            margin-top: 3px;
-            margin-left: 0px;
+      
+     
+        #desktopnav {
+          display: none;  /* Assuming you have a desktop version */
+        }
+        
 
+        .hamburger {
+          position: fixed;
+          top: 10%;
+          left: 2%;
+          font-size: 1.3em;
+          z-index: 1100;
+          background: #e087fd;
+          border: none;
+          border-radius: 50%;
+          color: white;
+          width: 40px;
+          height: 40px;
+          line-height: 40px;
+          text-align: center;
+          cursor: pointer;
+          display: block;
+        }
+
+        .hamburger.rotate {
+          transform: rotate(45deg);
+        }
+
+        .mobile-menu {
+          display: block;
+          position: absolute;
+          top: 12%; /* or below your header */
+          left: -5%;
+          width: 100%;
+          padding: 20px;
+          z-index: 1000;
+        }
+
+        .mobile-menu.hidden {
+          display: none;
         }
 
 
+        li {
+          /*margin: auto;  */ 
+          margin-top: 3px;
+          margin-left: 0px;
+      }
 
-        ul, #myUL {
+      #myUL {
+        left: 100px;
+      }
+
+        ul#myUL {
             display: block;
             z-index: 99;
             margin-left: 0px;
-            padding-left: 7px;
-
+            left: 0;
             /*margin: auto;  */ 
         }
 
