@@ -631,7 +631,7 @@ ul, #myUL, li, .nested {
         
 
         .hamburger {
-          position: fixed;
+          position: absolute;
           top: 14%;
           left: 2%;
           font-size: 1.3em;
