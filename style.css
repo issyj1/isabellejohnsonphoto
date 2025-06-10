@@ -685,15 +685,7 @@ ul, #myUL, li, .nested {
             /*margin: auto;  */ 
         }
 
-        #footer {
-            display: block;
-            z-index: 999;
-            bottom: 0px;
-            left: 0;
-            padding-top: 10px;
-            background-color: #fafafa;            
-        }
-
+      
         html {
           box-sizing: border-box;
         }
