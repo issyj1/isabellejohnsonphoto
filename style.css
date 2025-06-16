@@ -677,7 +677,7 @@ flex-direction: column;
   position: relative;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  overflow: visible;
   z-index: 2;
 }
 
@@ -714,13 +714,28 @@ flex-direction: column;
   outline: 1px solid red; /* or any color you want */
 }
 
-.text-overlay h1{
+.text-overlay h1 {
   color: white;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  outline: 1px solid red;
+  outline-offset: 4px; /* Optional: makes it more visible */
   transition: opacity 0.2s ease;
   z-index: 9999;
+  display: inline-block; /* KEY: ensures outline wraps all text lines */
+}
+.poster-section h1 {
+  /* Your styles here */
+  margin-left: -110%;
+  color: paleturquoise;
+  text-shadow: none;
+  margin-top: 40%;
 }
 
+.poster-section p {
+  margin-left: -110%;
+  margin-top: 40%;
+
+}
 /* intro section Parallax*/
 
 .intro-section {
@@ -868,13 +883,15 @@ outline: 1px solid red; /* or any color you want */
 .hero-text {
   position: relative;
   z-index: 2;
+  padding-left: 10px;
+
 }
 
 .hero-text a {
   color: white;
   text-decoration: none;
   font-family: "scandia-web";
-  font-size: 4rem;
+  font-size: 2rem;
 }
 
 
