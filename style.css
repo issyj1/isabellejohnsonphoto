@@ -1,778 +1,1573 @@
-
-
 * {box-sizing:border-box}
 
-body {
-    color: grey;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+/* ===================== */
+/*        FONTS          */
+/* ===================== */
+
+@font-face {
+  font-family: 'Bodoni Moda';
+  src: url('fonts/BodoniModa_72pt-BlackItalic.ttf') format('ttf'); /* WOFF2 format for better browser support */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family:'Walbaum';
+  src: url('fonts/WalbaumCom-Roman.ttf') format('ttf'); /* WOFF2 format for better browser support */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family:'Cobe';
+  src: url('fonts/cobeextrabold.ttf') format('ttf'); /* WOFF2 format for better browser support */
+  font-weight: bold;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family:'Scandia';
+  src: url('fonts/Scandia-Regular.otf') format('ttf'); /* WOFF2 format for better browser support */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+
+
+// <weight>: Use a value from 400 to 900
+// <uniquifier>: Use a unique and descriptive class name
+
+
+/* ===================== */
+/*        SECTIONS          */
+/* ===================== */
+  body, html {
+    margin: 0; /* Remove default margins */
+    height: 100%; /* Make sure the body takes full viewport height */
+    overflow-x: hidden; /* Enables horizontal scrolling */
+    overflow-y: auto; /* Prevent vertical scrolling */
+    padding: 0;
+  }
+
+  body {
+    color: rgb(124, 124, 124);
     box-sizing: border-box;
-    background-color: #FAFAFA;
-    margin: 0;
+    font-family: "Helvetica";
+    background-color: #fafafa;
     overflow-x: hidden;
-    max-width: 1000px;
+    overscroll-behaviour: none;
+    background-size: cover;   /* Makes the background image cover the full width and height */
+    font-family: "forma-djr-deck", sans-serif;
+    font-style: normal;   
+    font-weight: 200;
   }
   
+
   main {
     /*margin-left: 160px;*/
-    width: 90%;
-    max-width: 1080px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+
   }
 
   
 
-  
-    h1 {
-    font-size: 1.1em;
-    display: block;
-    margin-left: 30px;
-    margin-top: 30px;
-    margin-bottom: 1px;
-    display: block;
-    color: white;
-    font-weight: bold;
-    background-color:#e087fd;
-    border-radius: 20px;
-    padding-right: 12px;
-    padding-left: 10px;
-    padding-top: 4px;
-    padding-bottom: 4px;
-    width: 20%;
-    margin-bottom: 5px;
-    cursor: grab;
-    position: sticky;
-  }
+.section-info {
+
+  display: flex;
+flex-direction: column;
+width: 100%;
+padding-left: 35%;
+padding-top: 30px;
+  justify-content: space-evenly;
+  margin-left: 0px;
+  padding-bottom: 10%;
+}
+
+
+/* ===================== */
+/*        Headings and text styles          */
+/* ===================== */
+h1 {
+  font-family: "scandia web" sans-serif;
+  font-weight: 500;
+font-style: normal;
+}
 
 h1 a {
-    text-decoration: none;
-    color: white;
+  color: red;
+}
+
+.h1-white {
+  color: white;
+}
+
+.h1-container {
+  position: absolute;
+  left: 0;
+  top: 10%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  gap: 1em;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg); /* Flip to face inward */
+  z-index: 1000;
+  margin-left: 1%;
+  font-size: 2em;
+}
+
+.mainly-text,
+.ads-text {
+  letter-spacing: 0.1em;
+  margin: 0;
+  padding: 0;
+  cursor: grab;
+  z-index: 1000;
+
+}
+
+.ads-text {
+  writing-mode: vertical-rl;
+  text-align: center;
 }
 
 
+
+
+
+h2 {
+  font-size: 3em;
+  font-weight: 100;
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1;
+  letter-spacing: 2px;
+  font-family: "Scandia web", sans-serif;
+  font-style: normal;   
+  font-weight: 200;
+  
+}
+
+h2.slidein {
+  padding-top: 2%;
+  padding-right: 2%;
+  opacity: 0;
+  position: relative; /* required for left/right to work */
+  left: -1800px;
+  font-size: 2em;
+  line-height: 1.1;  
+  padding-left: 35%;
+  transition: all 2s ease-out;
+}
+
+h2.slidein.show {
+  left: 0;
+  opacity: 1;
+}
+
+
+
+h3 {
+  font-size: 1.5em;
+  font-family: "scandia-web-stencil", sans-serif;
+  padding: 0;
+  font-weight: 100;
+
+  color:rgb(145, 143, 143)
+
+}
+
+h4{
+  font-size: 1.2em;
+  font-family: "scandia web", sans-serif;
+  font-weight: 150;
+}
+
+p {
+  font-family: "ltc-bodoni-175", serif;
+  font-weight: 100;
+  font-style: normal; 
+}
+
+/*list item*/
+li {
+
+  display: inline-block;
+  padding-bottom: 4px;
+  padding-top: 4px;
+  text-decoration: none;
+  border-radius: 20px;
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-bottom: 5px;
+  width: max-content;
+  list-style: none;   
+}
+
+.button-grid p {
+  font-size: 0.8em;
+
+}
+
+
+img.svg {
+  width: 80%;
+  display: inline-block;
+  z-index: -5;
+}
+
+
+/* ===================== */
+/*        EXTRA COLORS          */
+/* ===================== */
+
+.mystyle {
+  color: rgb(170, 4, 211);
+  font-style: bold;
+}
+
+.mystyle2 {
+  color: rgb(211, 4, 104);
+  font-style: bold;
+}
+
+.mystyle3 {
+  color: rgb(250, 12, 195);
+  font-style: bold;
+}
+
+.full-width-image {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+/* ===================== */
+/*        SECTIONS - container for case study items          */
+/* ===================== */
+.containerex {
+
+  display: flex;
+flex-direction: column;
+width: 100%;
+padding: 5%;
+  justify-content: space-evenly;
+  margin-left: 0px;
+  padding-bottom: 50px;
+}
+
+.containerex p, h4 {
+  padding-left: 35%;
+}
+
+.containerex img {
+  margin-bottom: 3%;
+-webkit-filter: drop-shadow(1px 1px 1px #aaaaaa);
+}
+
+
+/* ===================== */
+/*        FOOTER          */
+/* ===================== */
 #footer {
-    bottom: 0;
-    color: rgb(0, 195, 255);
-    font-size: 0.7em;
-    bottom: 0;
-    padding-left: 3%;
-    padding-bottom: 5%;
-    position: fixed;
-    display: block;
-    padding-bottom: 29px;
-    z-index: 4;
-    font-family: "Helvetica Neue";
+  bottom: 0;
+  display: flex;
+  flex-direction: row;            /* Default to row on larger screens */
+  justify-content: space-between; /* Space between items */
+  align-items: center;            /* Center items vertically */
+  color: rgb(0, 195, 255);        /* Footer text color */
+  font-size: 0.7em;               /* Default font size */
+  z-index: 4;
+  background-color: black;
+  margin-left: 0;
+  margin-right: 0;
+  padding: 10px;                  /* Padding to add space inside footer */
+  width: 100%;                   /* Full width */
+}
+
+#footer li {
+  padding: 10px;
+  color: lightpink;               /* List item color */
+}
+
+/* ===================== */
+/*        next project button          */
+/* ===================== */
+.next-project-button {
+  display: inline-block;
+  width: 15%;
+  bottom: 30px;
+  left: 30px;
+  background-color: rgb(124, 124, 124, 0.7);
+  color: white;
+  padding: 3px;
+  font-family: "Scandia";
+  font-size: 0.8rem;
+  font-weight: 100;
+  text-decoration: none;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  z-index: 1100;
+  margin-bottom: 30px;
+  margin-left: 30px;
+  
+}
+
+.next-project-button:hover {
+  background-color: red;
+  transform: perspective(500px) rotateX(10deg) rotateY(10deg) translateY(-10px);
 }
 
 
 
+.shift {
+  transition: transform 0.3s ease;
+  transform-style: preserve-3d;
+}
+
+.shift-tilt {
+  /* Added via JS with custom values for each tap */
+}
+
+/* ===================== */
+/*        case study onload styling          */
+/* ===================== */
+
+
+
+/*the two image rows and column gallery*/
+    /* Remove hyperlink lines */
+  
+
+
+    .worldgif {
+      z-index: -1;
+      position: absolute;
+    }
+
+ 
+/* ===================== */
+/*        EXTRA STYLES          */
+/* ===================== */
+    .dashed-line {
+    width: 100%; /* Full width */
+    height: 2px; /* Line height */
+    border-top: 1px dashed #dbdada; /* Dashed line with 2px width and black color */
+    position: relative; 
+  }
+   /*break space*/
+.break {
+  padding: 80px;
+}
 /*TEST FOR TREE LIST*/
     /* Remove hyperlink lines */
 
-  
+/*Responsive image grid*/
 
-
-/* Remove default bullets */
-
-ul, {
-  display: flex;
-    flex-direction: column;
-    margin-bottom: 0%;    
-    margin-top: 0%;    
-    z-index: 4;
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      padding: 0 4px;
     }
-
-    #myUL {
-        margin-bottom: 0%;    
-        margin-top: 0%;    
-        z-index: 4;
-        padding-left: 30px;
-    }
-
-
-    ul a {
-        text-decoration: none;
-        color: white;
-        float: left;
-    }
-
-li {
-
-        font-family:  /*"Gotham Rounded A", "Gotham Rounded B", "Gotham Rounded",*/ "Helvetica Neue", Helvetica, Arial, sans-serif;
-        display: inline-block;
-        padding-bottom: 4px;
-        padding-top: 4px;
-        text-decoration: none;
-        color: white;
-        border-radius: 20px;
-        padding-right: 10px;
-        padding-left: 10px;
-        background-color: lightgray;
-        margin-bottom: 5px;
-        width: max-content;
-        list-style: none;
-        z-index: 3;
-}
-
-li:active {
-  background-color: yellow;
-}
-
-li a{
-    text-decoration: none;
-
-  }
-
-.nested {
-    display: none;
-
-  }
-  .nested li {
-    display: flex;
-    flex-direction: column;
-    width: max-content;
-    background-color: violet;
-    margin-left: 20px;
-  }
-
-
-/* Style the caret/arrow */
-.caret {
-    cursor: pointer;
-    user-select: none; /* Prevent text selection */
-  }
-  
-  /* Create the caret/arrow with a unicode, and style it */
-  .caret::before {
-    content: "\25B6";
-    color: white;
-    display: none;
-   /* display: none;  // do this if you don't want the space*/
-    margin-right: 5px;
     
-  }
-  
-  /* Rotate the caret/arrow icon when clicked on (using JavaScript) */
-  .caret-down::before {
-    transform: rotate(90deg);
-  }
-  
-/* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
-.active {
-    display: block;
+    /* Create four equal columns that sits next to each other */
+    .column {
+      flex: 50%;
+      max-width: 50%;
+      padding: 0 4px;
     }
-
-.nested .about {
-    font-size: 0.9em;
-    background-color: transparent;  /* Remove the background color */
-
-    color: black;
-    z-index: 999;
-    margin-left: 0%;
-    width: 40%;
-    padding-bottom: 10%;
-    z-index: 99;
-    padding-top: 5px;
-    left: 0;
-  }
-
-  .nested .about a {
-    color: black;
-    font-weight: bold;
-  }
-
-  ul.nested.active {
-    padding-left: 10px;
-  }
-
-  /*overlay test */
-.overlay {
+    
+    .column img {
+      margin-top: 8px;
+      vertical-align: middle;
+      width: 100%;
+    }
+    
+    /* Responsive layout - makes a two column-layout instead of four columns */
+    @media screen and (max-width: 800px) {
+      .column {
+        flex: 50%;
+        max-width: 50%;
+      }
+    }
+    
+    /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+      .column {
+        flex: 100%;
+        max-width: 100%;
+      }
+    }
+/* ===================== */
+/*        preload section         */
+/* ===================== */
+#preloader {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100vh;
-  background-color: rgba(250, 250, 250, 0.8);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  font-size: 1.8rem;
-
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.5s ease;
-  z-index: -10;
+  top: 10px;
+  right: 15px;
+  z-index: 9999;
+  background-color: rgba(34, 34, 34, 0.9);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  outline: 1px solid red; /* or any color you want */
 }
 
-.overlay.show {
-  opacity: 1;
-  visibility: visible;
-  z-index: -10;
-
-}
-
-
-/*testimonials section */
-
-
- .testimonials {
-    display: inline-block;
-    position: absolute;
-    top: 0px;
-    right: 5px;
-    z-index: -500;
-     
-       overflow: hidden;
-       align-items: center;
-       justify-content: center;
-       padding: 5px;
-    font-family: "Helvetica Neue";
     
-      padding: 10%;
-  }
-
- .text {
-  padding-right: 15px;
-  top: 0;
-  }
-
-.text h2 {
-  margin: 0;
-}
-  
+    /* Spinner animation */
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    
+/*END - Responsive image grid*/
+/* ===================== */
+/*        PARALLAX SECTION         */
+/* ===================== */
 
 
-  .testimonials h3{
-   color: rgb(0, 195, 255);
-  }
-
-  .img-gallery-testimonials img{
-   width: 60%;
-float: left; 
-padding-right: 15px;
-  }
-
-  .img-gallery-testimonials img:hover{
-    transform: perspective(500px) rotateX(10deg) rotateY(10deg) translateY(-10px);
-  }
-
-/* slidesghow test */
-
-
-
-
-
-
-
-.slideshow {
-  position: relative;
-  width: 700px;   /* fixed container size */
-  height: 560px;
-  margin: -100px auto auto auto;
-  overflow: visible;  /* so images with contain aren’t cropped */
-  z-index: -100;
-  object-fit: contain;
-
-}
-
-.slide {
-  position: fixed;   /* absolute inside relative container */
-  top: 50%;
-  left: 50%;
-  width: 100%;
-  height: 100%;
-  background-size: contain;
-  background-repeat: no-repeat;
+.parallax {
+  display: flex;
+  flex-direction: column;
+  align-items: center;       /* centers items horizontally */
+  justify-content: center;   /* centers items vertically (optional) */
+  min-height: 500px;
+  background-image: url("img/photography/431A7212 edited less res.jpg");
+  background-attachment: fixed;
   background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 
-  /* start offscreen right */
-  transform: translate(-50%, -50%) translateX(100%);
-  transition: none;
+
+
+.parallax h1 {
+  position: sticky;
+  top: 20px; /* distance from top when sticky */
+  z-index: 2;
+  color: white;
+  font-family: "scandia web";
+  font-size: 2.5rem;
+  margin: 0;
+  line-height: 1.2;
+  margin: 0 auto;
+  padding-top: 20px; /* optional spacing */
+  padding-bottom: 20px;
+}
+
+.parallax li {
+  color: white;
+  display: inline-block;
+  text-align: left; /* if needed */
+  margin-top: 10px;
+  /* keep your other styles */
+flex-direction: column;
+  font-size: 1rem;
+  position: sticky;
+  top: 15%; /* distance from top when sticky */
+  gap: 30px;
+  margin-top: 40px;
+  align-items: center;
+  font-family: "Bodoni";
+  background-color: rgba(34, 34, 34, 0.9);
+  padding: 6px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.2s ease;
+  z-index: 9999;
+  outline: 1px solid red; /* or any color you want */
+}
+
+.parallax p {
+  padding-top: 5%;
+}
+.scroll-content {
+  height: max-content;
+  background-color: #fafafa;
+  font-size: 21px;
+  color: rgb(84, 83, 83);
+  padding: 20px;
+  font-family: "Scandia";
+  justify-content: center;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.scroll-content p {
+  font-family: "Bodoni Moda";
+  font-size: 0.8em;
+}
+
+/* logo and awards bit*/
+.logos-awards-section {
+    color: white;
+}
+
+.section-content {
+  padding: 40px;
+  max-width: 900px;
+  margin: auto;
+}
+
+
+
+.logos-row {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 30px;
+}
+
+.logos-row img {
+  height: 60px;
+}
+
+.awards-press h2 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+
+}
+
+.awards-press li {
+}
+
+.awards-press p {
+  margin: 5px 0;
+  font-size: 1rem;
+}
+
+
+/*about section Parallax*/
+
+.parallax-alt {
+  /* Replace with a different image URL */
+  background-image: url('img/vogueparis/kunsthal_lind_012_jpg_3455.webp');
+  min-height: 400px; 
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+.parallax-alt2 {
+  background-color: #fafafa;
+}
+
+/*two image parallax */
+
+
+
+
+.parallax-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  margin-top: 200px;
+  display: block;
+  padding: 5%;
+
+}
+
+/* Left image container holds the natural-size image */
+.parallax-left {
+  position: relative;
+  width: fit-content;
+  height: auto;
+  /* or center with margin auto */
+  z-index: 1;
+}
+
+.parallax-left img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+}
+
+/* Right image overlaps the top-right */
+.parallax-right {
+  position: absolute;
+  top: -50px;   /* shift upward to overlap */
+  left: calc(50%); /* place it over the right side of the left image */
+  z-index: 2;
+  
+}
+
+.parallax-right img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* reverse parallax of this one above */
+
+/* Reverse layout: left image on top, right image behind */
+.parallax-container.reverse-style .parallax-left {
+  position: absolute;
+  left: 0;
+  z-index: 2;
+  width: 80%;
+
+}
+
+.parallax-container.reverse-style .parallax-right {
+  position: relative;
+  width: 50%;
+  z-index: 1;
+}
+
+.reverse-style {
+  padding-bottom: 250px;
+}
+/*poster*/
+
+.spacer2 {
+  height: 70.33vh;
+}
+
+.spacer {
+  height: 100vh;
+}
+
+
+.poster-section {
+  height: 150vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.poster-wrapper {
+  position: relative;
+  width: 400px; /* poster width */
+}
+
+/* Rectangle exactly same size & ratio as poster */
+.slow-rectangle {
+  position: absolute;
+  width: 110%;
+  height: 100%;
+  background: rgba(190, 189, 189, 0.3);
+
+  bottom: -10%;  /* offset down */
+  right: -45%;    /* offset left */
 
   z-index: 1;
   will-change: transform;
+  pointer-events: none;
 }
 
-
-div#slide1.slide, div#slide2.slide {
-  height: 80%;
-      z-index: -100;
-
-}
-
-.btn {
-  position: absolute;
-  bottom: 20px;
-  padding: 10px 20px;
-  font-size: 0.9em;
-  cursor: pointer;
-  user-select: none;
-    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-style: italic;
-  border: 1px;
-  border-radius: 4px;
-  transition: background-color 0.3s ease;
-z-index: 10;
-
-}
-
-#prevBtn {
-  left: 40%;
-  transform: translateX(-100%);
-}
-
-#nextBtn {
-  left: 60%;
-  transform: translateX(-100%);
-}
-
-.btn:hover {
-    background-color: rgba(251, 18, 227, 0.8);
-
-  }
-@media (max-width: 725px) {
-
-.slideshow {
+/* Poster on top */
+.poster-container {
   position: relative;
-  display: block;
   width: 100%;
-  margin-right: 0;
-  margin-top: -100px;
-  overflow: visible;  /* so images with contain aren’t cropped */
-  z-index: -100;
+  height: 100%;
+  overflow: hidden;
+  z-index: 2;
 }
 
-
-}
-@media (max-width: 425px) {
-  .slideshow {
-    width: 80vw;
-    height: calc(90vw * 0.8);
-
-  }
-
-  .slide {
-    position: fixed;
-    width: 90%;
-  }
-
-
-
-  .btn {
-    bottom: 55px; /* raise buttons higher on small screens */
-    font-size: 10px;
-    padding: 6px 16px;    
-  }
-
-     #prevBtn {
-    left: 30%;
-    transform: translateX(-100%);
-  }
-  
-  #nextBtn {
-    left: 50%;
-    transform: translateX(-100%);
-  }
-
-}
-  
-
-/*galleries in section pages */
-
-/*ham menu - not displaying on desktop */
-
-.off-screen-menu {
-  background-color:rgba(224, 135, 253);
-  height: 100vh;
+.poster-image {
   width: 100%;
-  max-width: 450px;
-  position: fixed;
-  top: 0;
-  right: -450px;
+  height: 100%;
+  object-fit: cover;
+}
+
+.text-overlay {
+  position: absolute;
+  inset: 0;
+  color: white;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  font-size: 1.8rem;
-  transition: .3s ease;
-  z-index: 99;
-}
-
-#myUL2 {
-  padding-left: 0;
-}
-
-.off-screen-menu.active {
-  right: 0px;
-}
-.off-screen-menu ul {
-  padding-left: 0px;
-}
-
-.off-screen-menu {
-  display: none;
+  padding: 1rem;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.6);
 
 }
 
-.off-screen-menu.active {
-  right: 0px;
-}
-
-nav {
-display: none;
-}
-
-/*ham menu test */
-
-
-
-
-  .img-gallery {
-    width: 80%;
-    margin-left: 25%;
-    position: absolute;
-    margin-right: 0;
-    border-right: 0px;
-    top: 25px;
-    display: block;
-    z-index: -100;
-    overflow: hidden;
-  }
-    
-    .img-gallery img {
-       width: 90%;
-       padding-bottom: 5%;
-       z-index: -100;
-    -webkit-filter: drop-shadow(1px 1px 1px #aaaaaa);
-    }
-
-/* next click gallery */
-
-
-/* image grid on index page */
-.container {
-  z-index: -100;
-  display: grid;
-  position: absolute;
-  top: 25px;
-  margin-right: 0;
-  grid-template-columns: 1fr 1fr 1fr; /* three equal columns */
-  gap: 30px; /* Horizontal gap between the columns */
-  margin: 20px;
-  padding-bottom: 25px;
-}
-
-.container img:hover{
-  transform: scale(1.02) translateY(-5px);
-
-}
-
-
-/* Next & previous buttons */
-.prev, .next {
-  cursor: grab;
-  position: absolute;
-  bottom: 0.3%;
+.text-overlay p{
+  background-color: rgba(34, 34, 34, 0.9);
   color: white;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 20px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
-
+  padding: 6px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.2s ease;
+  z-index: 9999;
+  outline: 1px solid red; /* or any color you want */
 }
 
-/* Next & previous buttons */
-.prev {
-    padding-right: 200px;
-    padding-top: 610px;
-    padding-left: 4px;
-    background-color:rgba(255, 217, 0 /50%);
+.text-overlay h1{
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.2s ease;
+  z-index: 9999;
+}
+
+/* intro section Parallax*/
+
+.intro-section {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  
+  gap: 40px;
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 200px; /* or any value you prefer */
+  margin-top: 100px;
+  
+}
+
+.intro-images {
+  display: flex;
+  gap: 20px;
+  flex: 1 1 300px; /* Allow it to shrink but have a minimum */
+  position: relative;
+}
+
+.parallax-thumb {
+  width: 100%;
+  max-width: 80%; /* Limit max width so images don't get too big */
+  transition: transform 0.2s ease-out;
+  will-change: transform;
+}
+
+.img2 {
+  z-index: 1;
+}
+
+.intro-text {
+  flex: 1 1 300px; /* Same for text, allow shrinking but set minimum */
+  max-width: 45%;   /* Give it space but less than half for breathing room */
+  height: max-content;
+  display: block;
+  z-index: 4;
+}
+.intro-text p{
+background-color: rgba(34, 34, 34, 0.9);
+color: white;
+padding: 6px 10px;
+border-radius: 6px;
+box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+transition: opacity 0.2s ease;
+z-index: 9999;
+outline: 1px solid red; /* or any color you want */
+}
+.intro-text h4 {
+  outline: 1px solid red; /* or any color you want */
+
+}
+@media (max-width: 768px) {
+  .intro-section {
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
   }
-/* Position the "next button" to the right 
-WHY NOT WORKING?*/
-.next {
-    left: 30%;
-    padding-left: 200px;
-    padding-top: 610px;
-    padding-right: 4px;
-    background-color:rgba(255, 217, 0 /50%);
+
+  .intro-images {
+    justify-content: center;
+  }
+  .parallax-thumb {
+    width: 50%;         /* scales width responsively */
+    max-width: 300px;   /* optional max size to avoid huge images */
+    height: auto;       /* keeps aspect ratio */
+    transition: transform 0.2s ease-out;
+    will-change: transform;
+    display: block;     /* removes inline image spacing issues */
+    object-fit: contain; /* ensures image fits inside without distortion */
+  }
+  
+}
+
+@media (max-width: 450px) {
+  .slow-rectangle {
+    position: absolute;
+    width: 110%;
+    height: 100%;
+    background: rgba(190, 189, 189, 0.3);
+  
+    bottom: -5%;  /* offset down */
+    right: -25%;    /* offset left */
+  
+    z-index: 1;
+    will-change: transform;
+    pointer-events: none;
+  }
+  .parallax-thumb {
+    width: 50%;         /* scales width responsively */
+   /* ensures image fits inside without distortion */
+  }
+  .parallax-container {
+    position: relative;
+    width: 90%;
+    padding-bottom: 130px;
+  }
+}
+
+
+
+
+/* ===================== */
+/*        VIEW THE WORK SECTION         */
+/* ===================== */
+
+
+.fullscreen-hero {
+  position: relative;
+  height: 100vh;
+
+  background-color: #000; /* fallback */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  overflow: hidden;
 
 }
 
-/* On hover, add a black background color with a little bit see-through */
-.prev:hover {
-  cursor: url(svg/prev.svg), auto; 
-  background-color:rgba(255, 217, 0 /50%);
-
+/* Slideshow Layer */
+.hero-slideshow {
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 0;
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out;
 }
 
-.next:hover {
-  cursor: url(svg/Untitled-2.svg), auto; 
-  background-color:rgba(255, 217, 0 /50%);
-
+/* Dark overlay on top of images */
+.fullscreen-hero::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 1;
 }
 
-#img-gallery-portrait {
-  width: 500px;
-  margin-left: 35%;
-z-index: -500;
+.hero-text {
+  position: relative;
+  z-index: 2;
 }
 
-#img-gallery-portrait img {
-  width: 500px;
-  -webkit-filter: drop-shadow(1px 1px 1px #aaaaaa);
-z-index: -500;
-
-
-    
+.hero-text a {
+  color: white;
+  text-decoration: none;
+  font-family: "scandia-web";
+  font-size: 4rem;
 }
 
-.mobile-menu, .hamburger {
-  display: none;
+
+
+
+/*END - Responsive image grid*/
+/* ===================== */
+/*        GRID TEST         */
+/* ===================== */
+
+.button-grid {
+  display: grid;
+  gap: 16px;
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 0 20px;
+  font-family: "Bodoni Moda";
 }
 
-/*test for the array  image slider */
+.grid-row {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  align-items: center;
+  background-color: #f0f0f0;
+  border-radius: 12px;
+  padding: 16px 24px;
+  transition: background-color 0.3s ease;
+}
+
+.grid-row:hover {
+  background-color: #e0e0e0;
+}
+
+.button-text {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #333333;
+  margin-right: 10px;
+}
+
+.overlaybutton-text {
+  font-size: 1rem;
+  color: #be2222;
+  
+}
 
 
 
+
+
+
+/*galleries in section pages */
+
+/* list items before ham */
+    /* Create four equal columns that sits next to each other */
+  
+/* ===================== */
+/*        NAV          */
+/* ===================== */
 
 /*media queries*/
-@media only screen and (max-width: 768px) {
-
-ul, #myUL, li, .nested {
-  z-index: 999;
-}
-  .img-gallery {
-    display: inline-block;
-    width: 100%;
-    margin: auto;
-    padding-left: 3%;
-    padding-bottom: 5%;
-    margin-right: 0;
-    margin-top: 176px;
-
-  }
-    .img-gallery img {
-       padding-bottom: 2%;
-       width: 100%;
-       padding-right: 3%; 
-       margin-left: auto; 
-
-    }
-
-    #img-gallery-portrait {
-      width: 100%;
-      margin: auto;
 
 
-    }
-    
-    #img-gallery-portrait img {
-      width: 100%;
-
-    }
-
-                 .container {
-    top: 5%;
-    width: 100%;
-    padding: 5%;
-    margin: 0 auto;
-    grid-template-columns: 1fr 1fr; /* Two equal columns */
-}
-   
-        footer {
-            padding-top: 10px;
-            right: 0;
-            padding-right: 3%; 
-            z-index: 4;
-            display: block;
-            padding-bottom: 10px;
-            position: absolute;
-
-        }
-
-                /*playing about*/
-
-      
-
-        
-
-        .nested .about {
-            width: 500px;
-            z-index: 3;
-        }
-      
-
-      }
-        @media only screen and (max-width: 430px) {
-
-          body {
-            max-width: 88%;
-            margin: 0px;
-          }
-
-     h1 {
-        display: block;
-        width: 45%;
-        margin-left: 7px;
-
-        /*margin: auto;  */ 
-        /*text-align: center;*/
-     }
-     
-
-      
-     
-        #desktopnav {
-          display: none;  /* Assuming you have a desktop version */
-        }
-        
-
-        .hamburger {
-          position: absolute;
-          top: 17%;
-          left: 2%;
-          font-size: 1.3em;
-          z-index: 1100;
-          background: #e087fd;
-          border: none;
-          border-radius: 50%;
-          color: white;
-          width: 40px;
-          height: 40px;
-          line-height: 40px;
-          text-align: center;
-          cursor: pointer;
-          display: block;
-        }
-
-        .hamburger.rotate {
-          transform: rotate(45deg);
-        }
-
-        .mobile-menu {
-          display: block;
-          position: absolute;
-          top: 20%; /* or below your header */
-          left: -5%;
-          width: 100%;
-          padding: 20px;
-          z-index: 1000;
-        }
-
-        .mobile-menu.hidden {
-          display: none;
-        }
-
-
-        li {
-          /*margin: auto;  */ 
-          margin-top: 3px;
-          margin-left: 0px;
-      }
-
-      #myUL {
-        left: 100px;
-      }
-
-        ul#myUL {
-            display: block;
-            z-index: 99;
-            margin-left: 0px;
-            left: 0;
-            /*margin: auto;  */ 
-        }
-
-      
-        html {
-          box-sizing: border-box;
-        }
-
-   .testimonials {
-    width: 100%;
-    padding-left: 20px;
-
+  ul, #myUL, li {
+    z-index: 999;
   }
 
+    a {
+      text-decoration: none;  
+    }
 
-  .img-gallery-testimonials img{
-    width: 100%;
- float: left; 
- padding-bottom: 10px;  
-   }
+   .myUL a {
+      color: rgb(219, 58, 219);
+    }
 
+
+
+    .myUL a:hover {
+      color: rgb(147, 21, 111);
+
+    }
  
 
 
 
+/*ham menu - not displaying on desktop */
+
+/* Styling for the hamburger menu and navigation links */
+.offscreenmenu {
+  position: relative;
+  z-index: 6;
+
+}
+
+.hamburger-icon {
+  font-size: 30px;
+  cursor: pointer;
+  z-index: 6;
+  justify-content: center;
+  align-items: center;
+  color: red;
+}
+
+/* Make the navigation visible on larger screens */
 
 
-        .img-gallery-portrait {
-          margin-top: 5%;
-          z-index: -1;
-          padding-bottom: 50px;
-          background-color: #fafafa;
-          top: 23%;
+/* Style the links */
+.fade-item a {
+  text-decoration: none;
+
+    color: white;
+  padding: 1px;
+}
+
+
+
+/* When in mobile view */
+
+  h1 {
+    z-index: 4;
+    text-align: left;
+
+  }
+
+  .h1-white a {
+    color: white;
+  }
+
+  .hamburger-icon-white {
+    color: white;
+  }
+ 
+  .hamburger-icon {
+    display: block; /* Show the hamburger icon on mobile */
+    z-index: 99;
+    margin-left: 2%;
+    position: relative;
+  }
+
+  .myUL {
+    display: none; /* Hide the links initially */
+    flex-direction: row;
+    position: absolute;
+    transition: opacity 0.3s ease-in-out; /* Add smooth transition */
+    text-align: left;
+    left: 15%;
+    padding-top: 10px;
+    margin-top: 0px;
+  }
+  
+
+  .myUL.show {
+    display: flex; /* Show links when the menu is toggled */
+    opacity: 1; /* Fade in effect */   
+  }
+
+/* the list of items */
+  .myUL li {
+padding-left: 10px;
+padding-top: 10px;
+text-decoration: none;
+  }
+
+  
+
+  .myUL li a {
+        color: white;
+
+  }
+
+  .off-screen-menu {
+    background-color: rgb(250, 12, 195);
+    height: 100vh;
+    width:100%;
+    top: 0;
+    right: -1800px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 1.8rem;
+    transition: .3s ease;
+    z-index: 1;
+    position: fixed;
+  }
+
+  .off-screen-menu.show {
+    display: block;
+    right: 0px;
+  }
+  .offscreenmenu ul {
+    padding-left: 0px;
+  }
+
+
+
+
+@media screen and (max-width: 468px) {
+  .hamburger-icon {
+    display: block; /* Show the hamburger icon on mobile */
+    z-index: 99;
+  }
+
+  .myUL {
+    flex-direction: column;
+    position: absolute;
+    transition: opacity 0.3s ease-in-out; /* Add smooth transition */
+    text-align: center;
+    margin: 0 auto;
+  }
+
+  .myUL.show {
+    display: flex; /* Show links when the menu is toggled */
+  }
+
+  .myUL li {
+    font-size: 1.2em;
+  }
+
+  li.fade2.fadein {
+    font-size: 1.1em;
+  }
+
+  div.banner {
+    height: 300px;
+    width: 100%;
+  }
+  div.banner img {
+    height: 300px;
+  }
+  div.img-container {
+width: 100%;
+  }
+
+
+ 
+  
+}
+
+
+/* end of ham*/
+
+
+
+
+
+/* ===================== */
+/*        CASE STUDY IMAGE CONTAINER     */
+/* ===================== */
+
+/*overlay image*/
+/* Container for all the gallery items */
+
+/* Container for the two columns */
+.gallery-container {
+  display: grid;
+  width: 100%;
+  top: -100px;
+  grid-template-columns: 1fr 1fr; /* Two equal columns */
+  gap: 20px; /* Horizontal gap between the columns */
+}
+
+/* Individual gallery columns */
+.gallery-column {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Vertical gap between items */
+  z-index: 0;
+}
+
+/* Style for individual gallery items */
+.gallery-item {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: auto; /* Let items take their natural height */
+  overflow: visible;
+}
+
+/* tooltip test */
+
+
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+  cursor: none; /* Hides the system cursor */
+
+}
+
+.tooltip-container:hover .tooltip-text,
+.tooltip-container.active .tooltip-text {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.image-wrapper {
+  display: block;
+  width: 100%;
+  transition: transform 0.3s ease;
+}
+
+.rotate-on-hover:hover {
+  transform: scale(1.05) rotate(1deg);
+}
+
+.tooltip-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+  background-color: rgba(34, 34, 34, 0.9);
+  color: white;
+  padding: 6px 10px;
+  border-radius: 6px;
+  white-space: nowrap;
+  font-size: 14px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transition: opacity 0.2s ease;
+  z-index: 9999;
+  outline: 1px solid red; /* or any color you want */
+
+}
+
+.tooltip-text.show {
+  visibility: visible;
+  opacity: 1;
+}
+
+
+
+h2.image {
+  background-color: red;
+  -webkit-filter: drop-shadow(1px 1px 1px #110808);
+  height: 120px;
+  align-content: center;
+}
+
+
+
+
+/* Style for the images */
+.gallery-item img {
+  width: 100%; /* Make image take full width of the parent container */
+  height: auto; /* Maintain aspect ratio */
+  display: block; /* Remove any space below the image */
+  object-fit: cover; /* Ensure the images cover their container without distortion */
+}
+
+/* Style for the overlay */
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(247, 17, 236, 0.5); /* Semi-transparent dark overlay */
+  transition: opacity 0.3s ease; /* Smooth transition for overlay */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Text inside overlay */
+.overlay .text {
+  color: white;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+a.text {
+  font-size: 20px;
+  align-items: center;
+  z-index: 1000;
+  color: rgb(0, 195, 255);        /* Footer text color */
+}
+
+/* Show overlay when hovering over the image */
+
+
+.rotate-on-hover {
+  transition: transform 0.3s ease;
+  display: inline-block;
+}
+
+.rotate-on-hover:hover {
+  transform: perspective(500px) rotateX(10deg) rotateY(10deg) translateY(-10px);
+  ; /* You can change 5deg to any small angle */
+}
+
+/* Media Query for Mobile View */
+@media screen and (max-width: 768px) {
+  /* Change the layout to one column on mobile devices */
+  .gallery-container {
+    grid-template-columns: 1fr;
+    padding-left: 10%; 
+    padding-right: 10%; 
+    padding-bottom: 10%; 
+     /* Single column on small screens */
+  }
+
+  /* Adjust spacing between items in single column */
+  .gallery-column {
+    gap: 15px; /* Smaller gap on mobile */
+  }
+
+ 
+  .h1-container {
+    flex-direction: row;
+    gap: 1em;
+    top: 7%;
+    left: 0.5em;
+  }
+  
+  .mainly-text,
+  .ads-text {
+  
+    font-size: 4.5em;
+  
+  }
+  .mainly-text,
+  .ads-text {
+  
+    font-size: 4.5em;
+  
+  }
+
+  .containerex {
+
+  padding: 5%;
+    justify-content: space-evenly;
+    margin-left: 0px;
+    padding-bottom: 50px;
+  }
+  
+  .containerex p {
+    padding-left: 25%;
+  }
+  
+  /*parallax poster and rectangle section */
+
+  .poster-section {
+    height: 80vh;
+    width: 70%;
+    padding-left: 10%;
+  }
+
+  h2.slidein {
+    
+    padding-left: 20%;
+    
+  }
+}
+
+
+
+/*banners*/
+
+
+
+  
+
+   
+      
+ @media only screen and (max-width: 430px) {
+
+          body {
+            max-width: 100%;
+            margin: 0;
+            padding: 0;
+          }
+          main {
+            
+            padding: 0;
+            margin: 0;
+            height: 100%;
+
+          }
+
+     h1 {
+        display: block;
+        width: 5%;
+        font-size: 2.5em;
+        padding-top: 5px;
+    
+        white-space: nowrap;
+        /*margin: auto;  */ 
+        /*text-align: center;*/
+     }
+
+     h2.slidein {
+  font-size: 1.8em;
+  line-height: 1.1;  
+  padding-right: 5%;
+}
+
+     .gallery-container {
+      padding-left: 15%;
+      padding-right: 15%;
+
+       /* Single column on small screens */
+    }
+
+     .rotate-on-hover {
+      transition: transform 0.4s ease;
+      transition-delay: 0.2s; /* Add delay before the effect starts */
+    
+    }
+    
+    .rotate-on-hover:hover {
+      transform: perspective(500px) rotateX(10deg) rotateY(10deg) translateY(-10px);
+      transition-delay: 0.2s; /* Add delay before the effect starts */
+    
+    }
+    
+    .rotate-on-hover.active {
+      transform: perspective(500px) rotateX(10deg) rotateY(10deg) translateY(-10px);
+    }
+
+    .tooltip-text {
+      visibility:visible;
+    }
+    .parallax h1 {
+      padding-right: 130px;
+    }
+
+       li {
+            display: block;
+            /*margin: auto;  */ 
+            margin-top: 3px;
+        }
+
+
+
+
+        ul, #myUL {
+            display: block;
+            z-index: 99;
+            padding-left: 7px;
+
+            /*margin: auto;  */ 
+        }
+
+        html {
+          box-sizing: border-box;
+        }
+
+
+        .h1-container {
+          flex-direction: row;
+          gap: 1em;
+          top: 7%;
+          left: 0.5em;
+        }
+        
+        .mainly-text,
+        .ads-text {
+          margin: 0;
+          font-size: 1.9em;
+     
+        }
+/*parallax mobile*/
+
+.text-overlay {
+  position: relative;
+  margin-top: -200px;
+
+}
+.text-overlay h1{
+  color: white;
+  font-size: 13px;
+  transition: opacity 0.2s ease;
+  z-index: 9999;
+}
+
+
+/* Left image container holds the natural-size image */
+.parallax-left {
+  margin-left: 5px;
+}
+.parallax-section {
+  width: 100%;
+}
+
+.parallax-right {
+  position: absolute;
+  top: -50px;   /* shift upward to overlap */
+  left: calc(40%); /* place it over the right side of the left image */
+  z-index: 2;
+  
+}
+
+.parallax-left img {
+  max-width: 90%;
+}
+
+.parallax-right img {
+  
+  max-width: 100%;
+}
+
+
+        .img-gallery img {
           
+          z-index: -1;
+         margin-left: 0;
+         padding: 0;
+         align-content: center;
       }
         
 
-       
-
-  .prev, .next {
-    width: 1%;
-    bottom: 0.3%;
-    font-size: 20px;
-    z-index: 20;
-  }
-  
-  .next {
-    padding-left: 0;
-margin-top: 10px;
-    margin: 0;
-    padding-top: 710px;
-  }
-  
-
-  
-  
- /* img gallery */
-
-
-
-
-.slideshow-container {
-  top: 1%;
-}
-
-      .mySlides fade {
-        margin: 0;
+      .containerex img {
+        width: 100%;
       }
+      
 
 
-
-
-.nested .about {
-    width: auto;
-    padding-left: 10px;
-    font-size: 1em;
-    padding-top: 10px;
-    z-index: 999;
-    padding-right: 1%;
-    padding-bottom: 1%;
-    padding-top: 5px;
-    } 
 
     :root {
       overscroll-behavior: none;
     }
+
+    h1 {
+      margin-left: 2px;
+    }
+
+    .container {
+      width: 100%;
+    }
+
+    #footer {
+      flex-direction: column;          /* Stack items vertically */
+      align-items: center;             /* Center items horizontally */
+      font-size: 0.9em;                /* Slightly larger font for mobile */
+      padding: 15px; 
+      position: static;
+      /* Add more padding for mobile */
+      z-index: 1500;
+    }
+  
+    #footer li {
+      padding: 5px;                    /* Reduce padding for mobile */
+      font-size: 1em;                   /* Adjust list item font size */
+    }
+
+    
+      .parallax {
+        min-height: 100vh; /* Fill the screen */
+      }
+
+    
+      
+      .hero-text a {
+        
+        font-size: 0.7rem;
+      }
+
+    }
+
+    div.spacer2 {
+      height: 15vh;
+    }
+    
+
+    .image-container2 {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+      gap: 10px; /* Optional, for space between images */
+  
+    }
+  
+    .image-container2 img {
+      width: 40%; /* Ensure images are responsive */
+      height: auto;
+      display: block;
+  
+    }
+  
+
+
+  /*end of media query*/
+
+  .fade-item:active {
+    color: red;
   }
 
 
 .fade-item {
-  transition: 0.1s all ease-in-out;
+  transition: 0.1s;
   opacity: 0;
 }
 
@@ -792,13 +1587,13 @@ margin-top: 10px;
 }
 
 
-$total-items: 7;
+$total-items: 10;
 
 
 li {
   position: relative;
   display: block;
-  animation: fadeIn 0.5s linear;
+  animation: 0.5s linear;
   animation-fill-mode: both;
 }
 
@@ -809,3 +1604,33 @@ li {
   }
 } 
 
+
+.fade2 {
+  transition: 0.1s;
+  opacity: 0;
+}
+
+.fadein2 {
+  animation: fadeIn2 0.9s 1;
+  animation-fill-mode: forwards;
+}
+
+
+@keyframes fadeIn2 {
+  0% {
+      opacity: 0;
+  }
+  100% {
+      opacity: 1;
+  }
+}
+
+
+$total-items: 17;
+
+
+@for $i from 1 through $total-items {
+  .fade2:nth-child(#{$i}) {
+    animation-delay: 0s * $i;
+  }
+} 
