@@ -478,7 +478,7 @@ div#slide1.slide, div#slide2.slide {
   left: 3%;         /* Align the left edge of the buttons with the left edge of the footer */
   bottom: 29px;     /* Place the buttons 60px above the footer */
   color: rgb(0, 195, 255);
-  font-size: 20px;
+  font-size: 15px;
   transition: 0.6s ease;
   border-radius: 0 3px 3px 0;
   user-select: none;
