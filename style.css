@@ -669,7 +669,7 @@ ul, #myUL, li, .nested {
         .mobile-menu {
           display: block;
           position: absolute;
-          top: 16%; /* or below your header */
+          top: 18%; /* or below your header */
           left: -5%;
           width: 100%;
         
