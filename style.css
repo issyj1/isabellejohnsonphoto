@@ -463,7 +463,8 @@ div#slide1.slide, div#slide2.slide {
   .btn {
     bottom: 50px; /* raise buttons higher on small screens */
     font-size: 14px;
-    padding: 7px 14px;
+    position: fixed;
+
   }
 
   #prevBtn {
