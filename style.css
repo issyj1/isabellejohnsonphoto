@@ -459,13 +459,13 @@ div#slide1.slide, div#slide2.slide {
   }
 
 
-
   .btn {
     bottom: 50px; /* raise buttons higher on small screens */
-    font-size: 14px;
+    font-size: 16px;
     position: fixed;
-
   }
+
+ 
 
   #prevBtn {
   right: 40%;
@@ -475,7 +475,6 @@ div#slide1.slide, div#slide2.slide {
 #nextBtn {
   right: 60%;
   transform: translateX(-100%);
-  padding: 7px 14px;
 }
 }
   
