@@ -6,17 +6,16 @@ for (let i = 0; i < toggler.length; i++) {
     const currentNested = this.nextElementSibling;
     const isCurrentlyActive = currentNested.classList.contains("active");
 
-    // Close all nested and remove caret-down
     const allNested = document.querySelectorAll(".nested");
     const allCarets = document.querySelectorAll(".caret");
     allNested.forEach(el => {
       el.classList.remove("active");
-      // Reset transition delays for portfolio fade-items
+
       const fadeItems = el.querySelectorAll(".fade-item");
       fadeItems.forEach(item => {
         item.style.transitionDelay = "0s";
       });
-      // Reset delays for paragraphs (about/contact)
+
       const paragraphs = el.querySelectorAll("p");
       paragraphs.forEach(p => {
         p.style.transitionDelay = "0s";
@@ -24,32 +23,48 @@ for (let i = 0; i < toggler.length; i++) {
     });
     allCarets.forEach(el => el.classList.remove("caret-down"));
 
+    // ⬇️ Target slideshow nav buttons
+    const nextBtn = document.getElementById("nextBtn");
+    const prevBtn = document.getElementById("prevBtn");
+
     if (!isCurrentlyActive) {
       currentNested.classList.add("active");
       this.classList.add("caret-down");
 
       if (this.classList.contains("portfolio-caret")) {
-        // Stagger fade-items for portfolio
         const fadeItems = currentNested.querySelectorAll(".fade-item");
         fadeItems.forEach((item, index) => {
           item.style.transitionDelay = `${index * 0.2}s`;
         });
-        overlay.classList.remove("show"); // No overlay for portfolio
+        overlay.classList.remove("show");
+
+        // Show slideshow buttons
+        nextBtn.style.display = 'inline-block';
+        prevBtn.style.display = 'inline-block';
       }
 
       if (this.classList.contains("about-caret") || this.classList.contains("contact-caret")) {
-        // Stagger paragraphs for about/contact
         const paragraphs = currentNested.querySelectorAll("p");
         paragraphs.forEach((p, index) => {
           p.style.transitionDelay = `${index * 0.3}s`;
         });
         overlay.classList.add("show");
+
+        // Hide slideshow buttons
+        nextBtn.style.zIndex = '-60';
+prevBtn.style.zIndex = '-60';
+footer.style.zIndex = '-60';
       }
     } else {
       overlay.classList.remove("show");
+
+      // Show slideshow buttons
+      nextBtn.style.display = 'inline-block';
+      prevBtn.style.display = 'inline-block';
     }
   });
 }
+
 
 
 // Your existing caret + overlay toggle JS
@@ -110,9 +125,52 @@ var items = document.getElementsByClassName("fade-item");
     }, delay)
   }
 
+/*Ham menu javascript*/
+
+/*const hamMenu = document.querySelector('.ham-menu');
+
+const offScreenMenu = document.querySelector('.off-screen-menu');
+
+hamMenu.addEventListener('click', () => {
+  hamMenu.classList.toggle('active');
+  offScreenMenu.classList.toggle('active');
+})*/
+
+  /*BACKGROUND color test*/
 
 
-/* images overflow slideshow */
+
+
+
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const containers = document.querySelectorAll('.tooltip-container');
+
+  containers.forEach(container => {
+    const tooltip = container.querySelector('.tooltip-text');
+
+    container.addEventListener('mouseenter', () => {
+      tooltip.style.display = 'block';
+    });
+
+    container.addEventListener('mousemove', (e) => {
+      tooltip.style.left = e.clientX + 15 + 'px';
+      tooltip.style.top = e.clientY + 15 + 'px';
+    });
+
+    container.addEventListener('mouseleave', () => {
+      tooltip.style.display = 'none';
+    });
+  });
+});
+
+
+/* test slideshow */
 const gallery = document.getElementById('img-gallery-portrait');
 const images = Array.from(gallery.querySelectorAll('img')).map(img => img.src);
 
@@ -199,4 +257,3 @@ function slideTransition(targetIndex, forward = true) {
 
 document.getElementById('nextBtn').addEventListener('click', nextSlide);
 document.getElementById('prevBtn').addEventListener('click', prevSlide);
-
