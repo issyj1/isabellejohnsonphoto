@@ -406,7 +406,7 @@ div#slide1.slide, div#slide2.slide {
 
 .btn {
   position: absolute;
-  bottom: 20px;
+  padding-bottom: 10px;
   padding: 10px 20px;
   font-size: 0.9em;
   cursor: pointer;
@@ -461,10 +461,19 @@ div#slide1.slide, div#slide2.slide {
 
 
   .btn {
-    bottom: 80px; /* raise buttons higher on small screens */
+    bottom: 40px; /* raise buttons higher on small screens */
     font-size: 14px;
     padding: 7px 14px;
   }
+  #prevBtn {
+  right: 40%;
+  transform: translateX(-100%);
+}
+
+#nextBtn {
+  right: 60%;
+  transform: translateX(-100%);
+}
 }
   
 
