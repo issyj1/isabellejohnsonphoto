@@ -462,12 +462,20 @@ div#slide1.slide, div#slide2.slide {
   .btn {
     bottom: 50px; /* raise buttons higher on small screens */
     font-size: 13px;
-  padding: 10px 20px;
+  padding: 7px 14px;
     position: fixed;
       z-index: 100;
   }
 
- 
+   #prevBtn {
+    left: 70%;
+    transform: translateX(-50%);
+  }
+
+  #nextBtn {
+    left: 80%;
+    transform: translateX(-50%);
+  }
 }
   
 
