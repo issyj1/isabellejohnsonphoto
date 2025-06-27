@@ -430,6 +430,7 @@ div#slide1.slide, div#slide2.slide {
 
 .btn:hover {
     background-color: rgba(251, 18, 227, 0.8);
+    color: white;
 
   }
 @media (max-width: 725px) {
