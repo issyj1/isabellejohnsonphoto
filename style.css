@@ -462,7 +462,7 @@ div#slide1.slide, div#slide2.slide {
   .btn {
     bottom: 50px; /* raise buttons higher on small screens */
     font-size: 13px;
-        padding: 4%;
+  padding: 10px 20px;
     position: fixed;
       z-index: 100;
   }
