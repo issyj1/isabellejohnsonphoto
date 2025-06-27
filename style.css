@@ -462,9 +462,9 @@ div#slide1.slide, div#slide2.slide {
   .btn {
     bottom: 50px; /* raise buttons higher on small screens */
     font-size: 13px;
-        padding: 7px 14px;
+        padding: 4%;
     position: fixed;
-      padding: 1%;
+      z-index: 100;
   }
 
  
@@ -718,7 +718,7 @@ ul, #myUL, li, .nested {
         .mobile-menu {
           display: block;
           position: absolute;
-          top: 18%; /* or below your header */
+          top: 19%; /* or below your header */
           left: -5%;
           width: 100%;
         
