@@ -468,16 +468,6 @@ div#slide1.slide, div#slide2.slide {
   }
 
  
-
-  #prevBtn {
-  right: 40%;
-  transform: translateX(-100%);
-}
-
-#nextBtn {
-  right: 60%;
-  transform: translateX(-100%);
-}
 }
   
 
