@@ -469,7 +469,7 @@ div#slide1.slide, div#slide2.slide {
   }
 
    #prevBtn {
-    left: 70%;
+    left: 60%;
     transform: translateX(-50%);
   }
 
