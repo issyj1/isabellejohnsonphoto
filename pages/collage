@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta content='width=device-width, initial-scale=1' name='viewport'/>
+      
+      <title>Isabelle Johnson Photography</title>
+
+      <link rel="shortcut icon" type="image/png" href="../svg/SDG_logo.png">
+
+      <link rel="stylesheet" href="../normalize.css">
+      <link href="../style.css" rel="stylesheet"> 
+  
+    </head>
+    <body onLoad="test()">
+  
+    <a href="../index.html" class="logo">
+      <img src="../img/svg/Asset 3.svg" alt="Isabelle Johnson Photography logo" height="60">
+    </a>  
+  
+      <div id="desktopnav">
+    <ul id="myUL">
+      <li  class="caret portfolio-caret">Portfolio</li>
+        <ul class="nested">
+<li class="fade-item"><a href="../pages/portrait.html">Portrait</a></li>
+             <li class="fade-item"><a href="../pages/fashion.html">Fashion</a></li>
+               <li class="fade-item"><a href="../pages/collage.html">Collage</a></li>
+            <li class="fade-item"><a href="../pages/ee.html">EE</a></li>
+            <li class="fade-item"><a href="../pages/commissioned.html">Charity</a></li>
+            <li class="fade-item"><a href="../pages/flowers.html">Dutch Flowers</a></li>
+            <li class="fade-item"><a href="../pages/events.html">Events</a></li>
+            <li class="fade-item"><a href="../pages/creative.html">Creative</a></li>
+           <li class="fade-item"><a href="../pages/product.html">Product</a></li>
+        </ul>
+    </ul>
+    <ul id ="myUL" id="about-toggle" >
+      <li class="caret about-caret">About</li>
+        <ul class="nested">
+          <li class="about" class="fade-item">
+            I am an award-winning photographer and have been lucky enough to work with some of the business's biggest brands and creative agencies including Saatchi & Saatchi and EE.<br>
+            <br>
+            Having studied langauges at UCL, my obsession with people and places has led to a diverse portfolio of work.<br>
+            <br>
+            My experience as an advertising creative means I am always looking for the "why" behind every image.
+            I specialise in commercial, fashion and portrait photography. 
+            <br>
+        </li>
+          </ul> 
+    </ul>   
+    <ul id ="myUL" id="contact-toggle" >
+      <li class="caret contact-caret", class="background">Contact </li>
+              <ul class="nested">
+                <li class="about" class="fade-item">
+                
+                  Please don't hesitate to contact me at:
+                  <b>isabelle@isabellejohnsonphoto.com</b>
+                  <br>
+                  I am able to give custom quotes based on the specific requirements of every project.
+                  <br>
+                  <br>
+                  Follow me on Instagram:                   
+                <br>
+                  
+                  <a href="https://www.instagram.com/issyj1/?hl=en-gb" target="_blank">issyj1</a>
+                </li>
+                </ul>  
+            </ul>
+            <ul id="myUL">
+              <li><a href="../pages/testimonials.html">Testimonials</a></li>
+            </ul>
+    </div>
+
+    
+<!-- Hamburger Toggle Button -->
+<button id="menuToggle" class="hamburger">&#8594;</button>
+
+<!-- Mobile Menu Container -->
+<div id="mobileMenu" class="mobile-menu hidden">
+  <!-- Paste your existing <ul> and <div class="overlay"> here -->
+      <div>
+    <ul id="myUL">
+      <li  class="caret portfolio-caret">Portfolio</li>
+        <ul class="nested">
+<li class="fade-item"><a href="../pages/portrait.html">Portrait</a></li>
+             <li class="fade-item"><a href="../pages/fashion.html">Fashion</a></li>
+                 <li class="fade-item"><a href="../pages/collage.html">Collage</a></li>
+            <li class="fade-item"><a href="../pages/ee.html">EE</a></li>
+            <li class="fade-item"><a href="../pages/commissioned.html">Charity</a></li>
+            <li class="fade-item"><a href="../pages/flowers.html">Dutch Flowers</a></li>
+            <li class="fade-item"><a href="../pages/events.html">Events</a></li>
+            <li class="fade-item"><a href="../pages/creative.html">Creative</a></li>
+           <li class="fade-item"><a href="../pages/product.html">Product</a></li>
+        </ul>
+    </ul>
+    <ul id ="myUL" id="about-toggle" >
+      <li class="caret about-caret">About</li>
+        <ul class="nested">
+          <li class="about" class="fade-item">
+            I am an award-winning photographer and have been lucky enough to work with some of the business's biggest brands and creative agencies including Saatchi & Saatchi and EE.<br>
+            <br>
+            Having studied langauges at UCL, my obsession with people and places has led to a diverse portfolio of work.<br>
+            <br>
+            My experience as an advertising creative means I am always looking for the "why" behind every image.
+            I specialise in commercial, fashion and portrait photography. 
+            <br>
+        </li>
+          </ul> 
+    </ul>   
+    <ul id ="myUL" id="contact-toggle" >
+      <li class="caret contact-caret", class="background">Contact </li>
+              <ul class="nested">
+                <li class="about" class="fade-item">
+                
+                  Please don't hesitate to contact me at:
+                  <b>isabelle@isabellejohnsonphoto.com</b>
+                  <br>
+                  I am able to give custom quotes based on the specific requirements of every project.
+                  <br>
+                  <br>
+                  Follow me on Instagram:                   
+                <br>
+                  
+                  <a href="https://www.instagram.com/issyj1/?hl=en-gb" target="_blank">issyj1</a>
+                </li>
+                </ul>  
+            </ul>
+            <ul id="myUL">
+              <li><a href="../pages/testimonials.html">Testimonials</a></li>
+            </ul>
+    </div>
+      
+  <!-- Existing content here (your whole menu structure) -->
+</div>
+        
+
+            <div class="overlay"></div>
+
+    <script >
+      function test(){
+        document.getElementById("footer").innerHTML="Portfolio / Fashion ★";
+      }
+    </script>
+
+  
+
+      <div class="img-gallery" id="img-gallery-portrait" style="display:none;">
+
+                   <img src="../img/collage/digi res.jpg" alt="flower portrait">
+                   <img src="../img/collage/flowercollagedigi.jpg" alt="flower collage">
+                    <img src="../img/portrait/aucke less res.jpg" alt="portrait of blonde model blue suit sat by bench with orange background">
+                    <img src="../img/fashion/431A8448 digi.jpg" alt="portrait me">
+
+                             <img src="../img/collage/LAVIEdigi.jpg" alt="illustration and flower collage">
+                             <img src="../img/collage/flower8.jpg" alt="flower portrait">
+                   <img src="../img/collage/flowercollage3.jpg" alt="flower portrait">
+         <img src="../img/portrait/431A6551.jpg" alt="portrait of brunette model drinking milk out of the carton">
+                <img src="../img/fashion/431A7989 2.jpg" alt="portrait with heart">
+                             <img src="../img/collage/headsedited.jpg" alt="head 3 portrait">
+       <img src="../img/fashion/431A8007 2.jpg" alt="portrait with heart">
+         <img src="../img/portrait/431A6927.jpg" alt="portrait of brunette model outside in chain necklace and white top">
+           <img src="../img/portrait/431A6291.jpg" alt="portrait of brunette model against orange door outside">
+                 <img src="../img/fashion/431A8026 2.jpg" alt="portrait with heart">
+          <img src="../img/portrait/431A6309 less res.jpg" alt="portrait of model in sunglasses against orange wall">
+        <img src="../img/portrait/431A6405.jpg" alt="portrait of brunette model outside in chain necklace and white top">
+
+      </div>
+    
+      <!-- Slideshow container -->
+      <div class="slideshow" id="slideshow">
+        <div class="slide" id="slide1"></div>
+        <div class="slide" id="slide2"></div>
+      </div>
+    
+      <!-- Next button -->
+      <button id="prevBtn" class="btn">Previous</button>
+      <button id="nextBtn" class="btn">Next</button>
+  
+      
+
+  
+    <script src="../caret.js"></script>
+
+
+  </body>
+  <footer id="footer">
+  © Isabelle Johnson
+  </footer>
+</html>
