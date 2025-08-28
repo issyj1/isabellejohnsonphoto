@@ -419,18 +419,17 @@ div#slide1.slide, div#slide2.slide {
 }
 
 #prevBtn {
-  left: 45%;
+  left: 40%;
   transform: translateX(-100%);
 }
 
 #nextBtn {
-  left: 55%;
+  left: 60%;
   transform: translateX(-100%);
 }
 
 .btn:hover {
     background-color: rgba(251, 18, 227, 0.8);
-    color: white;
 
   }
 @media (max-width: 725px) {
@@ -462,21 +461,21 @@ div#slide1.slide, div#slide2.slide {
 
   .btn {
     bottom: 50px; /* raise buttons higher on small screens */
-    font-size: 13px;
-  padding: 7px 14px;
+    font-size: 16px;
     position: fixed;
-      z-index: 100;
   }
 
-   #prevBtn {
-    left: 60%;
-    transform: translateX(-50%);
-  }
+ 
 
-  #nextBtn {
-    left: 80%;
-    transform: translateX(-50%);
-  }
+  #prevBtn {
+  right: 40%;
+  transform: translateX(-100%);
+}
+
+#nextBtn {
+  right: 60%;
+  transform: translateX(-100%);
+}
 }
   
 
@@ -500,7 +499,6 @@ div#slide1.slide, div#slide2.slide {
 }
 
 
-
 .container2 {
   z-index: -100;
   display: grid;
@@ -511,6 +509,13 @@ div#slide1.slide, div#slide2.slide {
   margin: 20px;
   padding-bottom: 25px;
 }
+@media only screen and (max-width: 430px) {
+  .container2 {
+grid-template-columns: 1fr;
+  }
+}
+
+
 .gallerycolumn {
   display: flex;
       flex-direction: column;
@@ -520,6 +525,41 @@ div#slide1.slide, div#slide2.slide {
 
 .gallery-item img {
   width: 100%;
+}
+
+
+/* Button fixed at top right */
+.expand-btn {
+  position: absolute;
+  top: 25px;
+  right: 15px;
+  background: #f6ff00;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  transition: background 0.3s;
+}
+.expand-btn:hover {
+  background: transparent;
+}
+
+/* Hidden text */
+.hidden-text {
+  display: none;
+  max-width: 500px;
+  margin: 0px auto;
+  padding: 100px;
+  background: rgba(245, 245, 245, 0.8);
+  border-radius: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.hidden-text.active {
+  display: block;
 }
 
 /* test for the next over the images */
@@ -641,7 +681,6 @@ ul, #myUL, li, .nested {
       width: 100%;
       margin: auto;
 
-
     }
     
     #img-gallery-portrait img {
@@ -734,7 +773,7 @@ ul, #myUL, li, .nested {
         .mobile-menu {
           display: block;
           position: absolute;
-          top: 19%; /* or below your header */
+          top: 18%; /* or below your header */
           left: -5%;
           width: 100%;
         
