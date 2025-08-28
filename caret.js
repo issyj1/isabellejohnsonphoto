@@ -257,3 +257,15 @@ function slideTransition(targetIndex, forward = true) {
 
 document.getElementById('nextBtn').addEventListener('click', nextSlide);
 document.getElementById('prevBtn').addEventListener('click', prevSlide);
+
+
+/*info button*/
+function toggleText() {
+  const box = document.getElementById("infoBox");
+  
+  const btn = document.querySelector(".expand-btn");
+  
+
+  box.classList.toggle("active");
+  btn.textContent = box.classList.contains("active") ? "Hide Info" : "Show Info";
+}
