@@ -523,6 +523,10 @@ grid-template-columns: 1fr;
       z-index: 0;
 }
 
+.gallerycolumn img {
+  -webkit-filter: drop-shadow(1px 1px 1px #aaaaaa);
+}
+
 .gallery-item img {
   width: 100%;
 }
@@ -531,7 +535,7 @@ grid-template-columns: 1fr;
 /* Button fixed at top right */
 .expand-btn {
   position: absolute;
-  top: 25px;
+  top: 35px;
   right: 15px;
   background: #f6ff00;
   border: none;
