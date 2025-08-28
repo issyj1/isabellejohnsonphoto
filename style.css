@@ -501,6 +501,23 @@ div#slide1.slide, div#slide2.slide {
 
 
 
+.container2 {
+  z-index: -100;
+  display: grid;
+  position: absolute;
+  gap: 30px;
+  grid-template-columns: 1fr 1fr;
+  top: 25px;
+  margin: 20px;
+  padding-bottom: 25px;
+}
+.gallerycolumn {
+  display: flex;
+      flex-direction: column;
+      gap: 20px;
+      z-index: 0;
+}
+
 .gallery-item img {
   width: 100%;
 }
