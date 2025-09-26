@@ -80,7 +80,16 @@ h1 a {
 
 
 
+.printstore {
+  margin-left: 30px;
+}
 
+.printstore h2 {
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif
+}
+h2 {
+font-family: Helvetica;
+}
 
 #footer {
     bottom: 0;
@@ -655,6 +664,85 @@ WHY NOT WORKING?*/
   display: none;
 }
 
+/*Print Store*/
+
+
+.product-grid {
+  display: flex;
+  position: absolute;
+  flex-wrap: wrap;
+  gap: 20px;         /* space between items */
+  justify-content: center;  /* center the grid */
+  padding: 20px;
+  top: 250px;
+  z-index: -1000;
+}
+
+.product {
+  flex: 1 1 200px;   /* grow, shrink, base width */
+  max-width: 250px;
+  min-width: 250px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  text-align: center;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.product img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+
+}
+
+/* Print store modal */
+/* Modal background */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  justify-content: center;
+  align-items: center;
+}
+
+/* Modal content */
+.modal-content {
+  background: #fff;
+  display: flex;
+  max-width: 600px;
+  width: 90%;
+  padding: 30px;
+}
+
+.modal-content img {
+  max-width: 50%;
+  margin-right: 20px;
+  border-radius: 8px;
+}
+
+.modal-info {
+  flex: 1;
+}
+
+/* Close button */
+.close {
+  position: absolute;
+  top: 10px; right: 20px;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+#modal-paypal-button {
+  max-width: 200px;   /* shrink width */
+  padding-top: 10px;
+}
+
+
+
 /*media queries*/
 @media only screen and (max-width: 768px) {
 
@@ -715,6 +803,8 @@ ul, #myUL, li, .nested {
             width: 500px;
             z-index: 3;
         }
+
+
   
 
 }
