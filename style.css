@@ -1020,6 +1020,11 @@ margin-top: 10px;
     :root {
       overscroll-behavior: none;
     }
+
+     #open-cart {
+      top: 50px;
+    }
+            
   }
 
 
