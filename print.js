@@ -122,6 +122,18 @@ closeCart.addEventListener("click", () =>
   cartModal.setAttribute("aria-hidden", "true")
 );
 
+/****************************************
+ * CLOSE MODAL BY CLICKING OUTSIDE CONTENT
+ ****************************************/
+
+window.addEventListener("click", function(event) {
+  if (event.target === productModal) {
+    productModal.setAttribute("aria-hidden", "true");
+  }
+  if (event.target === cartModal) {
+    cartModal.setAttribute("aria-hidden", "true");
+  }
+});
 
 /****************************************
  * OPEN CART
