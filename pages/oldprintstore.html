@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Isabelle Johnson Photography</title>
+
+    <link rel="shortcut icon" type="image/png" href="../svg/SDG_logo.png">
+    <link rel="stylesheet" href="../normalize.css">
+    <link href="../style.css" rel="stylesheet"> 
+  </head>
+
+  <body>
+    <main>
+      
+      <a href="../index.html" class="logo">
+        <img src="../img/svg/Asset 3.svg" alt="Isabelle Johnson Photography logo" height="60">
+      </a>  
+
+<div id="desktopnav">
+  <ul id="myUL">
+    <li class="caret portfolio-caret">Portfolio
+      <ul class="nested">
+        <li class="fade-item"><a href="../pages/portrait.html">Portrait</a></li>
+        <li class="caret fade-item">Fashion
+          <ul class="nested">
+            <li><a href="pages/fashion/editorial.html">Editorial</a></li>
+            <li><a href="pages/fashion/street.html">Street</a></li>
+            <li><a href="pages/fashion/runway.html">Runway</a></li>
+          </ul>
+        </li>
+        <li class="fade-item"><a href="pages/collage.html">Collage</a></li>
+        <li class="fade-item"><a href="pages/ee.html">EE</a></li>
+        <li class="fade-item"><a href="pages/commissioned.html">Charity</a></li>
+        <li class="fade-item"><a href="pages/flowers.html">Dutch Flowers</a></li>
+        <li class="fade-item"><a href="pages/events.html">Events</a></li>
+        <li class="fade-item"><a href="pages/creative.html">Ambient</a></li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul id="myUL">
+    <li class="caret about-caret">About
+      <ul class="nested">
+        <li class="about fade-item">
+          I am an award-winning photographer and have been lucky enough to work with some of the business's biggest brands...
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul id="myUL">
+    <li class="caret contact-caret background">Contact
+      <ul class="nested">
+        <li class="about fade-item">
+          Please don't hesitate to contact me at: <b>isabelle@isabellejohnsonphoto.com</b><br>
+          Follow me on Instagram: <a href="https://www.instagram.com/issyj1/?hl=en-gb" target="_blank">issyj1</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+
+  <ul id="myUL">
+    <li><a href="../pages/testimonials.html">Testimonials</a></li>
+  </ul>
+</div>
+
+      
+      <h2 class="printstore">Photo and Art Print Store</h2>
+      <h4 class="printstore">Welcome to my print store. Please get in touch for bespoke pieces.</h4>
+
+      <!-- Product Grid -->
+      <section class="product-grid">
+        <div class="product" data-product-id="PRODUCT_ID_1">
+          <img src="../img/prints/green.jpg" alt="Acid Bloemen - Green">
+          <h2>Acid Bloemen - Green</h2>
+          <p>A4 & A5</p>
+        </div>
+        <div class="product" data-product-id="PRODUCT_ID_2">
+          <img src="../img/prints/blue.jpg" alt="Acid Bloemen - Blue">
+          <h2>Acid Bloemen - Blue</h2>
+          <p>A4 & A5</p>
+        </div>
+        <div class="product" data-product-id="PRODUCT_ID_3">
+          <img src="../img/prints/flowercollage9.JPG" alt="Floral Collage">
+          <h2>Floral Collage</h2>
+          <p>A4 & A5</p>
+        </div>
+        <div class="product" data-product-id="PRODUCT_ID_4">
+          <img src="../img/prints/431A8967.JPG" alt="Provence Night">
+          <h2>Provence Night</h2>
+          <p>A4 & A5</p>
+        </div>
+        <div class="product" data-product-id="PRODUCT_ID_5">
+          <img src="../img/prints/431A8946.JPG" alt="Provence Night 2">
+          <h2>Provence Night 2</h2>
+          <p>A4 & A5</p>
+        </div>
+        <div class="product" data-product-id="PRODUCT_ID_6">
+          <img src="../img/prints/431A8719.JPG" alt="Provence Leaves">
+          <h2>Provence Leaves</h2>
+          <p>A4 & A5</p>
+        </div>
+      </section>
+
+      <!-- Modal -->
+      <div id="product-modal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <div class="modal-body">
+            <img id="modal-image" src="" alt="Product">
+            <div class="modal-info">
+              <h2 id="modal-title"></h2>
+
+              <!-- Price display -->
+              <p id="modal-price"></p>
+
+              <!-- Size selector -->
+              <form id="product-form">
+                <label for="size-select">Choose size:</label>
+                <select id="size-select">
+                  <option value="small">Small A5</option>
+                  <option value="medium">Medium A6</option>
+                </select>
+              </form>
+
+              <!-- PayPal Button Container -->
+              <div id="modal-paypal-button"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- PayPal SDK -->
+    <script src="https://www.paypal.com/sdk/js?client-id=ASOIW8asg5yeFlcFpceOM3EWCvEWD1KQvQbsDTWFTLwMgUUgPN-RXBWXUD4BqyjghgiLE0ggU17Ee-te&currency=GBP"></script>
+    <script src="../caret.js"></script>
+
+    <!-- Custom JS -->
+    <script src="../print.js"></script>
+
+    <footer id="footer">
+      © Isabelle Johnson
+    </footer>
+  </body>
+</html>
