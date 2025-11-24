@@ -752,6 +752,10 @@ WHY NOT WORKING?*/
   padding-top: 10px;
 }
 
+#cart-modal, #product-modal {
+  z-index: 5000; /* just to be sure for both modals */
+}
+
 #open-cart {
   position: fixed;       /* Fix it relative to the viewport */
   top: 30px;             /* Distance from top */
