@@ -718,6 +718,12 @@ WHY NOT WORKING?*/
   padding: 30px;
 }
 
+.modal[aria-hidden="false"] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .modal-content img {
   max-width: 50%;
   margin-right: 20px;
