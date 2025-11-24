@@ -752,6 +752,16 @@ WHY NOT WORKING?*/
   padding-top: 10px;
 }
 
+
+.close-product, .close-cart {
+  font-size: 30px;      /* bigger X */
+  padding: 10px;        /* optional extra clickable area */
+  cursor: pointer;
+  color: #000;          /* or whatever color you like */
+  font-weight: normal;
+}
+
+
 #cart-modal, #product-modal {
   z-index: 5000; /* just to be sure for both modals */
 }
