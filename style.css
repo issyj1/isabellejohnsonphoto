@@ -87,13 +87,14 @@ h1 a {
   background-color: rgb(160, 0, 147);
   border-radius: 20px;
   padding: 4px 12px;  /* top/bottom 4px, left/right 12px */
-  width: 13%;         /* adjust width as needed */
+  width: 120px;         /* adjust width as needed */
   cursor: grab;
   /* Center horizontally */
   margin: -20px auto 5px auto;  /* top, auto left/right, bottom */
   text-align: center;   
-  position: absolute;   
-  top: 100px;
+  position: absolute; 
+  top: 50px;             /* Distance from top */
+  
   right: 20px;     /* centers text inside */
 }
 
@@ -783,7 +784,8 @@ WHY NOT WORKING?*/
 
 #open-cart {
   position: absolute;       /* Fix it relative to the viewport */
-  top: 30px;             /* Distance from top */
+  top: 70px;
+  /* Distance from top */
   right: 20px;           /* Distance from right */
   z-index: 1000;         /* Make sure it’s above everything */
   padding: 10px 20px;    /* Button padding */
@@ -1048,12 +1050,13 @@ margin-top: 10px;
 
 
     #open-cart {
-      top: 50px;
+      top: 80px;
+
     }
 
     .printh3 {
-      width: 34%;
-      top: 120px;
+      width: 28%;
+      top: 60px;
 
     }
 
