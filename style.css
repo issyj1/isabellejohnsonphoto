@@ -84,15 +84,17 @@ h1 a {
   display: block;
   color: #fafafa;
   font-weight: bold;
-  background-color: rgb(172, 172, 173);
+  background-color: rgb(160, 0, 147);
   border-radius: 20px;
   padding: 4px 12px;  /* top/bottom 4px, left/right 12px */
-  width: 14%;         /* adjust width as needed */
+  width: 13%;         /* adjust width as needed */
   cursor: grab;
   /* Center horizontally */
-  margin: -200px auto 5px auto;  /* top, auto left/right, bottom */
+  margin: -20px auto 5px auto;  /* top, auto left/right, bottom */
   text-align: center;   
-  position:static;        /* centers text inside */
+  position: absolute;   
+  top: 100px;
+  right: 20px;     /* centers text inside */
 }
 
 .printstore {
@@ -1046,9 +1048,9 @@ margin-top: 10px;
     }
 
     .printh3 {
-      margin: 10px 280px 0px;  /* top, auto left/right, bottom */
       width: 34%;
-      
+      top: 120px;
+
     }
 
   }
