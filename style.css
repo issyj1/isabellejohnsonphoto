@@ -711,11 +711,16 @@ WHY NOT WORKING?*/
 
 /* Modal content */
 .modal-content {
+ 
   background: #fff;
   display: flex;
   max-width: 600px;
   width: 90%;
-  padding: 30px;
+  padding: 20px;
+  flex-direction: column; /* vertical stacking */
+  align-items: center;    /* center horizontally */
+  gap: 2px;              /* space between elements */
+
 }
 
 .modal[aria-hidden="false"] {
