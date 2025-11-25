@@ -129,6 +129,7 @@
               <ul id="myUL">
                 <li><a href="../pages/testimonials.html">Testimonials</a></li>
               </ul>
+              
       </div>
         
     <!-- Existing content here (your whole menu structure) -->
@@ -137,7 +138,7 @@
   <div class="overlay"></div>
 
  
-<h3 class="printh3">Print Store</h3>
+<h3 class="printh3"><a href="../pages/printstore.html">Print Store</a></h3>
 
 
 
@@ -145,6 +146,9 @@
   </span>
       
   <button id="open-cart">Cart(<span id="cart-count">0</span>)</button>
+
+
+
 
 <!-- PRODUCT GRID -->
 <section class="product-grid">
@@ -169,20 +173,6 @@
     <!-- IMAGE FILE HERE -->
     <img src="../img/prints/flowercollage9.JPG" alt="Floral Collage">
     <h2>Floral Collage</h2>
-  </div>
-
-    <!-- PRODUCT 4 -->
-  <div class="product" data-id="P_PROVENCE">
-    <!-- IMAGE FILE HERE -->
-    <img src="../img/prints/431A8967.jpg" alt="Provençal Flowers">
-    <h2>Provençal Flowers</h2>
-  </div>
-
-    <!-- PRODUCT 5 -->
-  <div class="product" data-id="P_NIGHT1">
-    <!-- IMAGE FILE HERE -->
-    <img src="../img/prints/431A8946.jpg" alt="Provence Night">
-    <h2>Provence Night</h2>
   </div>
 
     <!-- PRODUCT 6 -->
@@ -213,6 +203,20 @@
     <h2>Tattoo Shot</h2>
   </div>
   
+      <!-- PRODUCT 4 -->
+      <div class="product" data-id="P_PROVENCE">
+        <!-- IMAGE FILE HERE -->
+        <img src="../img/prints/431A8967.jpg" alt="Provençal Flowers">
+        <h2>Provençal Flowers</h2>
+      </div>
+    
+        <!-- PRODUCT 5 -->
+      <div class="product" data-id="P_NIGHT1">
+        <!-- IMAGE FILE HERE -->
+        <img src="../img/prints/431A8946.jpg" alt="Provence Night">
+        <h2>Provence Night</h2>
+      </div>
+      
 </section>
 
 
@@ -262,7 +266,11 @@
 
     <!-- Custom JS -->
     <script src="../print.js"></script>
-
+    <script >
+      function test(){
+        document.getElementById("footer").innerHTML="Portfolio / Collage ★";
+      }
+    </script>
     <footer id="footer">
       © Isabelle Johnson
     </footer>
