@@ -9,9 +9,8 @@ function saveCart() {
 }
 
 function cartTotal() {
-  return cart
-    .reduce((sum, item) => sum + item.qty * item.price, 0)
-    .toFixed(2);
+  // Total of items only (without shipping)
+  return cart.reduce((sum, item) => sum + item.qty * item.price, 0).toFixed(2);
 }
 
 function updateCartCount() {
@@ -20,20 +19,15 @@ function updateCartCount() {
 }
 
 function addToCart(productId, name, size, price) {
-  const existing = cart.find(
-    (p) => p.productId === productId && p.size === size
-  );
-
+  const existing = cart.find(p => p.productId === productId && p.size === size);
   if (existing) {
     existing.qty++;
   } else {
     cart.push({ productId, name, size, price, qty: 1 });
   }
-
   saveCart();
   updateCartCount();
 }
-
 
 /****************************************
  * UI ELEMENTS
@@ -51,7 +45,6 @@ const sizeSelect = document.getElementById("size-select");
 
 let currentProduct = null;
 
-
 /****************************************
  * PRICING TABLE
  ****************************************/
@@ -60,7 +53,6 @@ const prices = {
   small: 65.0,
   medium: 85.0,
 };
-
 
 /****************************************
  * PRODUCT MODAL OPEN
@@ -81,7 +73,6 @@ function openProductModal(productEl) {
   productModal.setAttribute("aria-hidden", "false");
 }
 
-
 /****************************************
  * UPDATE PRICE DISPLAY
  ****************************************/
@@ -90,7 +81,6 @@ function updateProductPrice() {
   const p = prices[sizeSelect.value];
   modalPrice.textContent = `£${p.toFixed(2)}`;
 }
-
 
 /****************************************
  * ADD TO CART BUTTON
@@ -106,9 +96,7 @@ document.getElementById("add-to-cart").addEventListener("click", () => {
   alert("Added to cart!");
 });
 
-
 sizeSelect.addEventListener("change", updateProductPrice);
-
 
 /****************************************
  * MODAL CLOSE EVENTS
@@ -144,9 +132,6 @@ document.getElementById("open-cart").addEventListener("click", () => {
   cartModal.setAttribute("aria-hidden", "false");
 });
 
-
-
-
 /****************************************
  * RENDER CART ITEMS
  ****************************************/
@@ -165,7 +150,7 @@ function renderCart() {
     `;
   });
 
-  document.getElementById("cart-total").textContent = cartTotal();
+  document.getElementById("cart-total").textContent = (parseFloat(cartTotal()) + 5).toFixed(2);
 
   renderPayPalCheckout();
 }
@@ -177,9 +162,8 @@ function removeItem(i) {
   renderCart();
 }
 
-
 /****************************************
- * PAYPAL CHECKOUT (FULL CART)
+ * PAYPAL CHECKOUT (FULL CART WITH £5 SHIPPING)
  ****************************************/
 
 function renderPayPalCheckout() {
@@ -191,31 +175,35 @@ function renderPayPalCheckout() {
     return;
   }
 
+  const itemTotal = parseFloat(cartTotal());
+  const shipping = 5.0;
+
   paypal.Buttons({
     createOrder: (data, actions) => {
       return actions.order.create({
         purchase_units: [
           {
-            amount: { value: cartTotal() },
-            items: cart.map((item) => ({
+            amount: {
+              value: (itemTotal + shipping).toFixed(2),
+              currency_code: "GBP",
+              breakdown: {
+                item_total: { value: itemTotal.toFixed(2), currency_code: "GBP" },
+                shipping: { value: shipping.toFixed(2), currency_code: "GBP" }
+              }
+            },
+            items: cart.map(item => ({
               name: `${item.name} (${item.size})`,
-              unit_amount: {
-                value: item.price.toFixed(2),
-                currency_code: "GBP",
-              },
-              quantity: item.qty,
-            })),
-          },
-        ],
-        application_context: {
-          shipping_preference: "GET_FROM_FILE",
-        },
+              unit_amount: { value: item.price.toFixed(2), currency_code: "GBP" },
+              quantity: item.qty
+            }))
+          }
+        ]
       });
     },
 
     onApprove: (data, actions) => {
       return actions.order.capture().then((details) => {
-        alert("Order completed!");
+        alert("Order completed! Thank you!");
 
         // Clear cart
         cart = [];
@@ -227,19 +215,16 @@ function renderPayPalCheckout() {
   }).render("#paypal-cart-checkout");
 }
 
-
 /****************************************
  * PRODUCT GRID CLICK
  ****************************************/
 
-document.querySelectorAll(".product").forEach((p) =>
+document.querySelectorAll(".product").forEach(p =>
   p.addEventListener("click", () => openProductModal(p))
 );
-
 
 /****************************************
  * INITIAL DISPLAY UPDATE
  ****************************************/
 
 updateCartCount();
-
