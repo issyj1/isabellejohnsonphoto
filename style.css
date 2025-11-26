@@ -767,12 +767,48 @@ WHY NOT WORKING?*/
 }
 
 /* Close button */
+/* Make the overlay fixed */
 
 
 
 #modal-paypal-button {
   max-width: 200px;   /* shrink width */
   padding-top: 10px;
+}
+
+#paypal-cart-checkout iframe {
+  max-height: 80vh !important;
+  overflow-y: auto !important;
+}
+
+/* Make overlay fixed and allow scrolling inside */
+
+#cart-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.6);
+  overflow-y: auto; /* allow scrolling when content taller than viewport */
+  z-index: 1000;
+}
+
+/* Scrollable modal content */
+#cart-modal .modal-content {
+  max-height: 95vh; /* allow tall content but stay within viewport */
+  overflow-y: auto; /* scrollable */
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 500px;
+}
+
+/* Make PayPal iframe scrollable if needed */
+#paypal-cart-checkout iframe {
+  width: 100% !important;
+  max-height: 90vh !important; /* don’t exceed modal height */
 }
 
 .close-product, .close-cart {
