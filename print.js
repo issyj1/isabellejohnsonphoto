@@ -158,7 +158,8 @@ function renderPayPalButton(containerId = "paypal-button-container") {
     },
     onApprove: (data, actions) => {
       return actions.order.capture().then(() => {
-        alert("Order completed! Thank you!");
+        document.getElementById("order-message").textContent =
+        "Thank you! Your order is complete.";
         cart = [];
         saveCart();
         updateCartCount();
