@@ -906,6 +906,19 @@ WHY NOT WORKING?*/
   background: yellow;
 }
 
+.terms {
+  margin: 5%;
+  margin-bottom: 10%;
+}
+.terms a {
+  text-decoration: none;
+  color: rgb(196, 196, 196);
+}
+
+
+
+
+
 
 
 
