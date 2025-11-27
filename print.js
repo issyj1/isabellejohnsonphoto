@@ -3,141 +3,93 @@
  ****************************************/
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
+const prices = { small: 65, medium: 85 };
+let currentProduct = null;
 
 function saveCart() {
   localStorage.setItem("cart", JSON.stringify(cart));
 }
 
 function cartTotal() {
-  // Total of items only (without shipping)
   return cart.reduce((sum, item) => sum + item.qty * item.price, 0).toFixed(2);
 }
 
 function updateCartCount() {
   const count = cart.reduce((s, i) => s + i.qty, 0);
-  document.getElementById("cart-count").textContent = count;
+  const counter = document.getElementById("cart-count");
+  if (counter) counter.textContent = count;
 }
 
 function addToCart(productId, name, size, price) {
   const existing = cart.find(p => p.productId === productId && p.size === size);
-  if (existing) {
-    existing.qty++;
-  } else {
-    cart.push({ productId, name, size, price, qty: 1 });
-  }
+  if (existing) existing.qty++;
+  else cart.push({ productId, name, size, price, qty: 1 });
   saveCart();
   updateCartCount();
 }
 
 /****************************************
- * UI ELEMENTS
+ * PRODUCT MODAL
  ****************************************/
 
 const productModal = document.getElementById("product-modal");
-const cartModal = document.getElementById("cart-modal");
-const closeProduct = document.querySelector(".close-product");
-const closeCart = document.querySelector(".close-cart");
-
+const closeProduct = productModal?.querySelector(".close-product");
 const modalImage = document.getElementById("modal-image");
 const modalTitle = document.getElementById("modal-title");
 const modalPrice = document.getElementById("modal-price");
 const sizeSelect = document.getElementById("size-select");
 
-let currentProduct = null;
-
-/****************************************
- * PRICING TABLE
- ****************************************/
-
-const prices = {
-  small: 65.0,
-  medium: 85.0,
-};
-
-/****************************************
- * PRODUCT MODAL OPEN
- ****************************************/
-
 function openProductModal(productEl) {
-  const img = productEl.querySelector("img").src;
-  const name = productEl.querySelector("h2").textContent;
-
   currentProduct = productEl.dataset.id;
-
-  modalImage.src = img;
-  modalTitle.textContent = name;
+  modalImage.src = productEl.querySelector("img").src;
+  modalTitle.textContent = productEl.querySelector("h2").textContent;
   sizeSelect.value = "small";
-
   updateProductPrice();
-
-  productModal.setAttribute("aria-hidden", "false");
+  productModal?.setAttribute("aria-hidden", "false");
 }
-
-/****************************************
- * UPDATE PRICE DISPLAY
- ****************************************/
 
 function updateProductPrice() {
-  const p = prices[sizeSelect.value];
-  modalPrice.textContent = `£${p.toFixed(2)}`;
+  if (modalPrice) modalPrice.textContent = `£${prices[sizeSelect.value].toFixed(2)}`;
 }
 
-/****************************************
- * ADD TO CART BUTTON
- ****************************************/
+sizeSelect?.addEventListener("change", updateProductPrice);
+closeProduct?.addEventListener("click", () => productModal.setAttribute("aria-hidden", "true"));
 
-document.getElementById("add-to-cart").addEventListener("click", () => {
-  const name = modalTitle.textContent;
-  const size = sizeSelect.value;
-  const price = prices[size];
-
-  addToCart(currentProduct, name, size, price);
-
+document.getElementById("add-to-cart")?.addEventListener("click", () => {
+  addToCart(currentProduct, modalTitle.textContent, sizeSelect.value, prices[sizeSelect.value]);
   alert("Added to cart!");
 });
 
-sizeSelect.addEventListener("change", updateProductPrice);
-
 /****************************************
- * MODAL CLOSE EVENTS
+ * PRODUCT GRID CLICK
  ****************************************/
 
-closeProduct.addEventListener("click", () =>
-  productModal.setAttribute("aria-hidden", "true")
-);
-
-closeCart.addEventListener("click", () =>
-  cartModal.setAttribute("aria-hidden", "true")
+document.querySelectorAll(".product").forEach(p =>
+  p.addEventListener("click", () => openProductModal(p))
 );
 
 /****************************************
- * CLOSE MODAL BY CLICKING OUTSIDE CONTENT
+ * CART MODAL (Optional, just for viewing items)
  ****************************************/
 
-window.addEventListener("click", function(event) {
-  if (event.target === productModal) {
-    productModal.setAttribute("aria-hidden", "true");
-  }
-  if (event.target === cartModal) {
-    cartModal.setAttribute("aria-hidden", "true");
-  }
-});
+const cartModal = document.getElementById("cart-modal");
+const closeCart = cartModal?.querySelector(".close-cart");
 
-/****************************************
- * OPEN CART
- ****************************************/
+closeCart?.addEventListener("click", () => cartModal.setAttribute("aria-hidden", "true"));
 
-document.getElementById("open-cart").addEventListener("click", () => {
+document.getElementById("open-cart")?.addEventListener("click", () => {
   renderCart();
-  cartModal.setAttribute("aria-hidden", "false");
+  cartModal?.setAttribute("aria-hidden", "false");
 });
 
 /****************************************
  * RENDER CART ITEMS
  ****************************************/
 
-function renderCart() {
-  const container = document.getElementById("cart-items");
+function renderCart(containerId = "cart-items", totalId = "cart-total") {
+  const container = document.getElementById(containerId);
+  if (!container) return;
+
   container.innerHTML = "";
 
   cart.forEach((item, i) => {
@@ -150,9 +102,8 @@ function renderCart() {
     `;
   });
 
-  document.getElementById("cart-total").textContent = (parseFloat(cartTotal()) + 5).toFixed(2);
-
-  renderPayPalCheckout();
+  const totalEl = document.getElementById(totalId);
+  if (totalEl) totalEl.textContent = (parseFloat(cartTotal()) + 5).toFixed(2);
 }
 
 function removeItem(i) {
@@ -163,68 +114,62 @@ function removeItem(i) {
 }
 
 /****************************************
- * PAYPAL CHECKOUT (FULL CART WITH £5 SHIPPING)
+ * CHECKOUT BUTTON REDIRECT
  ****************************************/
 
-function renderPayPalCheckout() {
-  const container = document.getElementById("paypal-cart-checkout");
-  container.innerHTML = "";
+const checkoutBtn = document.getElementById("checkout-button");
+checkoutBtn?.addEventListener("click", () => {
+  saveCart();
+  window.location.href = "checkout.html";
+});
 
-  if (!window.paypal) {
-    setTimeout(renderPayPalCheckout, 200);
-    return;
-  }
+/****************************************
+ * PAYPAL BUTTON RENDER (For checkout.html)
+ ****************************************/
 
-  const itemTotal = parseFloat(cartTotal());
-  const shipping = 5.0;
+function renderPayPalButton(containerId = "paypal-button-container") {
+  const container = document.getElementById(containerId);
+  if (!container || !window.paypal) return;
+
+  const shipping = 5; // fixed shipping cost
+  const subtotal = parseFloat(cartTotal());
+  const total = (subtotal + shipping).toFixed(2);
 
   paypal.Buttons({
+    style: { layout: 'vertical', label: 'pay' },
     createOrder: (data, actions) => {
       return actions.order.create({
-        purchase_units: [
-          {
-            amount: {
-              value: (itemTotal + shipping).toFixed(2),
-              currency_code: "GBP",
-              breakdown: {
-                item_total: { value: itemTotal.toFixed(2), currency_code: "GBP" },
-                shipping: { value: shipping.toFixed(2), currency_code: "GBP" }
-              }
-            },
-            items: cart.map(item => ({
-              name: `${item.name} (${item.size})`,
-              unit_amount: { value: item.price.toFixed(2), currency_code: "GBP" },
-              quantity: item.qty
-            }))
-          }
-        ]
+        purchase_units: [{
+          amount: {
+            value: (parseFloat(cartTotal()) + 5).toFixed(2),
+            currency_code: "GBP",
+            breakdown: {
+              item_total: { value: cartTotal(), currency_code: "GBP" },
+              shipping: { value: "5.00", currency_code: "GBP" }
+            }
+          },
+          items: cart.map(item => ({
+            name: `${item.name} (${item.size})`,
+            unit_amount: { value: item.price.toFixed(2), currency_code: "GBP" },
+            quantity: item.qty
+          }))
+        }]
       });
     },
-
     onApprove: (data, actions) => {
-      return actions.order.capture().then((details) => {
+      return actions.order.capture().then(() => {
         alert("Order completed! Thank you!");
-
-        // Clear cart
         cart = [];
         saveCart();
         updateCartCount();
         renderCart();
       });
-    },
-  }).render("#paypal-cart-checkout");
+    }
+  }).render(`#${containerId}`);
 }
 
 /****************************************
- * PRODUCT GRID CLICK
- ****************************************/
-
-document.querySelectorAll(".product").forEach(p =>
-  p.addEventListener("click", () => openProductModal(p))
-);
-
-/****************************************
- * INITIAL DISPLAY UPDATE
+ * INITIAL UPDATE
  ****************************************/
 
 updateCartCount();
