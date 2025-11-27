@@ -848,12 +848,12 @@ WHY NOT WORKING?*/
 
 #paypal-button-container iframe {
   width: 100%;
-  min-height: 50px;
 }
 #paypal-button-container {
-  width: 50%;        /* must have width */
-  min-height: 50px; 
-  margin: 0 auto;  /* must have height for iframe to render */
+  width: 40%;        /* must have width */
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;   /* must have height for iframe to render */
 }
 /* Make PayPal iframe scrollable if needed */
 #paypal-cart-checkout iframe {
@@ -1132,6 +1132,17 @@ margin-top: 10px;
       font-size: 1em;
 
     }
+
+    #paypal-button-container {
+  width: 40%;        /* must have width */
+  /* must have height for iframe to render */
+  /* horizontally center */
+}
+.cart-container {
+  width: 90%;
+  
+}
+
 
   }
 
