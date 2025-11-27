@@ -82,6 +82,12 @@ document.getElementById("open-cart")?.addEventListener("click", () => {
   cartModal?.setAttribute("aria-hidden", "false");
 });
 
+
+window.addEventListener("click", (e) => {
+  if (productModal && e.target === productModal) {
+    productModal.setAttribute("aria-hidden", "true");
+  }
+});
 /****************************************
  * RENDER CART ITEMS
  ****************************************/
@@ -103,7 +109,11 @@ function renderCart(containerId = "cart-items", totalId = "cart-total") {
   });
 
   const totalEl = document.getElementById(totalId);
-  if (totalEl) totalEl.textContent = (parseFloat(cartTotal()) + 5).toFixed(2);
+  if (totalEl) {
+    const itemTotal = parseFloat(cartTotal());
+    const finalTotal = cart.length > 0 ? itemTotal + 5 : 0;
+    totalEl.textContent = finalTotal.toFixed(2);
+  }
 }
 
 function removeItem(i) {
@@ -160,6 +170,17 @@ function renderPayPalButton(containerId = "paypal-button-container") {
       return actions.order.capture().then(() => {
         document.getElementById("order-message").textContent =
         "Thank you! Your order is complete.";
+           // Add Back to Printstore button
+    document.getElementById("post-order-buttons").innerHTML = `
+    <a href="printstore.html" class="back-to-store-btn">
+        ← Back to Printstore
+      </a>
+  `;
+
+  // Hide cart details and PayPal buttons
+  document.getElementById("cart-details").classList.add("hidden");
+  document.getElementById("paypal-button-container").classList.add("hidden");
+
         cart = [];
         saveCart();
         updateCartCount();
