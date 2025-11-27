@@ -877,6 +877,38 @@ WHY NOT WORKING?*/
   margin-right: 10%;
 }
 
+
+.hidden {
+  display: none !important;
+}
+
+#order-message {
+  font-size: 1.2rem;
+  font-weight: 500;
+  margin-top: 15px;
+  color: #b60095; /* green for success */
+  text-align: center;
+}
+
+
+.back-to-store-btn {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 10px 20px;
+  background: #d7d7d7;
+  color: #000000;
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 1rem;
+}
+
+.back-to-store-btn:hover {
+  background: yellow;
+}
+
+
+
+
 /*media queries*/
 @media only screen and (max-width: 768px) {
 
