@@ -783,6 +783,12 @@ WHY NOT WORKING?*/
 
 /* Make overlay fixed and allow scrolling inside */
 
+.modal-content {
+  max-height: 90vh;   /* viewport height */
+  overflow-y: auto;   /* scroll when content exceeds height */
+  padding: 20px;
+}
+
 #cart-modal {
   position: fixed;
   top: 0;
@@ -805,11 +811,6 @@ WHY NOT WORKING?*/
   max-width: 500px;
 }
 
-/* Make PayPal iframe scrollable if needed */
-#paypal-cart-checkout iframe {
-  width: 100% !important;
-  max-height: 90vh !important; /* don’t exceed modal height */
-}
 
 .close-product, .close-cart {
   font-size: 30px;      /* bigger X */
@@ -843,6 +844,37 @@ WHY NOT WORKING?*/
   background-color: white;
   color:rgb(0, 195, 255); /* PayPal blue, or your preferred color */
 
+}
+
+#paypal-button-container iframe {
+  width: 100%;
+  min-height: 50px;
+}
+#paypal-button-container {
+  width: 50%;        /* must have width */
+  min-height: 50px; 
+  margin: 0 auto;  /* must have height for iframe to render */
+}
+/* Make PayPal iframe scrollable if needed */
+#paypal-cart-checkout iframe {
+  width: 100% !important;
+  max-height: 90vh !important; /* don’t exceed modal height */
+}
+
+#cart-items {
+  
+  
+}
+
+.cart-container {
+  padding: 5%;
+  border: 1px solid #ddd;
+  text-align: center;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  align-items: center;
+  margin-left: 10%;
+  margin-right: 10%;
 }
 
 /*media queries*/
