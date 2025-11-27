@@ -216,47 +216,52 @@
         <img src="../img/prints/431A8946.jpg" alt="Provence Night">
         <h2>Provence Night</h2>
       </div>
-      
+
 </section>
 
 
-<!-- PRODUCT MODAL -->
-<div id="product-modal" class="modal" aria-hidden="true">
-  <div class="modal-content">
-    <span class="close-product">&times;</span>
-
-    <img id="modal-image" src="">
-    <h2 id="modal-title"></h2>
-
-    <label>Size:</label>
-    <select id="size-select">
-      <option value="small">A5 — £65</option>
-      <option value="medium">A4 — £85</option>
-    </select>
-
-    <p id="modal-price"></p>
-
-    <button id="add-to-cart">Add to Cart</button>
+  <!-- PRODUCT MODAL -->
+  <div id="product-modal" class="modal" aria-hidden="true">
+    <div class="modal-content">
+      <span class="close-product">&times;</span>
+      <img id="modal-image" src="">
+      <h2 id="modal-title"></h2>
+      <label>Size:</label>
+      <select id="size-select">
+        <option value="small">A5 — £65</option>
+        <option value="medium">A4 — £85</option>
+      </select>
+      <p id="modal-price"></p>
+      <button id="add-to-cart">Add to Cart</button>
+    </div>
   </div>
-</div>
 
 
 <!-- CART MODAL -->
+<!-- CART MODAL -->
 <div id="cart-modal" class="modal" aria-hidden="true">
   <div class="modal-content">
+    <!-- Close button -->
     <span class="close-cart">&times;</span>
+
+    <!-- Title -->
     <h2>Your Cart</h2>
 
+    <!-- Cart items will be dynamically inserted here -->
     <div id="cart-items"></div>
 
+    <!-- Total amount -->
     <h3>Total: £<span id="cart-total">0.00</span></h3>
+    <div id="paypal-button-container"></div>
 
-    <div id="paypal-cart-checkout"></div>
+    <!-- PayPal Smart Button container -->
+    <button id="checkout-button">Checkout</button>
+
   </div>
 </div>
 
 
-     
+
 
     </main>
 
