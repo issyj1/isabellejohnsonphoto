@@ -3,7 +3,7 @@
  ****************************************/
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
-const prices = { small: 35, medium: 55 };
+const prices = { small: 30, medium: 45 };
 let currentProduct = null;
 
 function saveCart() {
