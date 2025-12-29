@@ -493,12 +493,17 @@ div#slide1.slide, div#slide2.slide {
     width: 90%;
   }
 
-.btn {
+
+    .btn {
     position: fixed;
-    bottom: 50px; /* adjust as needed */
+    bottom: 20px;
     padding: 10px 20px;
     font-size: 16px;
-    z-index: 1000; /* make sure it's above images */
+    z-index: 1000;
+    display: inline-block;      /* ensures width is just content + padding */
+    box-sizing: border-box;     /* includes padding in width calculation */
+    min-width: 80px;            /* optional: make them uniform */
+    text-align: center;         /* center text inside button */
 }
 
 /* Previous button on left */
