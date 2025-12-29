@@ -494,17 +494,16 @@ div#slide1.slide, div#slide2.slide {
   }
 
 
+   
     .btn {
     position: fixed;
-    bottom: 20px;
+    bottom: 50px; /* adjust as needed */
     padding: 10px 20px;
     font-size: 16px;
-    z-index: 1000;
-    display: inline-block;      /* ensures width is just content + padding */
-    box-sizing: border-box;     /* includes padding in width calculation */
-    min-width: 80px;            /* optional: make them uniform */
-    text-align: center;         /* center text inside button */
-}
+    max-width: 100px;
+    z-index: 1000; /* make sure it's above images */
+}         /* center text inside button */
+
 
 /* Previous button on left */
 #prevBtn {
