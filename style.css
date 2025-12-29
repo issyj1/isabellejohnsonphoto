@@ -493,24 +493,26 @@ div#slide1.slide, div#slide2.slide {
     width: 90%;
   }
 
-
-  .btn {
-    bottom: 50px; /* raise buttons higher on small screens */
-    font-size: 16px;
+.btn {
     position: fixed;
-  }
-
- 
-
-  #prevBtn {
-  right: 40%;
-  transform: translateX(-100%);
+    bottom: 50px; /* adjust as needed */
+    padding: 10px 20px;
+    font-size: 16px;
+    z-index: 1000; /* make sure it's above images */
 }
 
+/* Previous button on left */
+#prevBtn {
+    left: 10px; /* small margin from left edge */
+    transform: none; /* remove translate */
+}
+
+/* Next button on right */
 #nextBtn {
-  right: 60%;
-  transform: translateX(-100%);
+    right: 10px; /* small margin from right edge */
+    transform: none;
 }
+
 }
   
 
