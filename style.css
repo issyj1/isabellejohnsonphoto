@@ -721,7 +721,7 @@ WHY NOT WORKING?*/
           display: block;
           position: absolute;
           top: 18%; /* or below your header */
-          left: -5%;
+          left: 10%;
           width: 100%;
         
           padding: 20px;
