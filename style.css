@@ -357,7 +357,9 @@ padding-right: 15px;
 
 /*ham menu - not displaying on desktop */
 
-
+   #desktopnav {
+          display: none;  /* Assuming you have a desktop version */
+        }
 
 
 
