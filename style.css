@@ -720,8 +720,8 @@ WHY NOT WORKING?*/
         .mobile-menu {
           display: block;
           position: absolute;
-          top: 18%; /* or below your header */
-          left: -1%;
+          top: 19%; /* or below your header */
+          left: 0%;
           width: 100%;
         
           padding: 20px;
