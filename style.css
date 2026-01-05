@@ -355,11 +355,6 @@ padding-right: 15px;
 
 /*galleries in section pages */
 
-/*ham menu - not displaying on desktop */
-
-   #desktopnav {
-          display: none;  /* Assuming you have a desktop version */
-        }
 
 
 
@@ -717,16 +712,10 @@ WHY NOT WORKING?*/
           transform: rotate(45deg);
         }
 
-        .mobile-menu {
-          display: block;
-          position: absolute;
-          top: 19%; /* or below your header */
-          left: 0%;
-          width: 100%;
-        
-          padding: 20px;
-          z-index: 1000;
-        }
+     .mobile-menu, .hamburger {
+  display: none;
+}
+
 
         .mobile-menu.hidden {
           display: none;
