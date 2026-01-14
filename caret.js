@@ -2,68 +2,70 @@ var toggler = document.getElementsByClassName("caret");
 var overlay = document.querySelector('.overlay');
 
 for (let i = 0; i < toggler.length; i++) {
-  toggler[i].addEventListener("click", function () {
-    const currentNested = this.nextElementSibling;
+  toggler[i].addEventListener("click", function (e) {
+    e.stopPropagation();
+
+    // 🔍 Find nested menu (child FIRST, then sibling)
+    let currentNested =
+      this.querySelector(":scope > .nested") ||
+      this.nextElementSibling;
+
+    if (!currentNested || !currentNested.classList.contains("nested")) return;
+
     const isCurrentlyActive = currentNested.classList.contains("active");
 
-    const allNested = document.querySelectorAll(".nested");
-    const allCarets = document.querySelectorAll(".caret");
-    allNested.forEach(el => {
-      el.classList.remove("active");
+    const isTopLevel =
+      this.classList.contains("portfolio-caret") ||
+      this.classList.contains("about-caret") ||
+      this.classList.contains("contact-caret");
 
-      const fadeItems = el.querySelectorAll(".fade-item");
-      fadeItems.forEach(item => {
-        item.style.transitionDelay = "0s";
+    // 🔒 CLOSE LOGIC
+    if (isTopLevel) {
+      // Close EVERYTHING
+      document.querySelectorAll(".nested.active").forEach(el => {
+        el.classList.remove("active");
       });
-
-      const paragraphs = el.querySelectorAll("p");
-      paragraphs.forEach(p => {
-        p.style.transitionDelay = "0s";
+      document.querySelectorAll(".caret.caret-down").forEach(el => {
+        el.classList.remove("caret-down");
       });
-    });
-    allCarets.forEach(el => el.classList.remove("caret-down"));
+    } else {
+      // Close siblings at same depth
+      const parentUL = this.closest("ul");
+      parentUL.querySelectorAll(":scope > li > .nested.active").forEach(el => {
+        if (el !== currentNested) {
+          el.classList.remove("active");
+          el.parentElement.querySelector(".caret")?.classList.remove("caret-down");
+        }
+      });
+    }
 
-    // ⬇️ Target slideshow nav buttons
-    const nextBtn = document.getElementById("nextBtn");
-    const prevBtn = document.getElementById("prevBtn");
-
+    // 🔁 TOGGLE CURRENT
     if (!isCurrentlyActive) {
       currentNested.classList.add("active");
       this.classList.add("caret-down");
-
-      if (this.classList.contains("portfolio-caret")) {
-        const fadeItems = currentNested.querySelectorAll(".fade-item");
-        fadeItems.forEach((item, index) => {
-          item.style.transitionDelay = `${index * 0.2}s`;
-        });
-        overlay.classList.remove("show");
-
-        // Show slideshow buttons
-        nextBtn.style.display = 'inline-block';
-        prevBtn.style.display = 'inline-block';
-      }
-
-      if (this.classList.contains("about-caret") || this.classList.contains("contact-caret")) {
-        const paragraphs = currentNested.querySelectorAll("p");
-        paragraphs.forEach((p, index) => {
-          p.style.transitionDelay = `${index * 0.3}s`;
-        });
-        overlay.classList.add("show");
-
-        // Hide slideshow buttons
-        nextBtn.style.zIndex = '-60';
-prevBtn.style.zIndex = '-60';
-footer.style.zIndex = '-60';
-      }
     } else {
-      overlay.classList.remove("show");
-
-      // Show slideshow buttons
-      nextBtn.style.display = 'inline-block';
-      prevBtn.style.display = 'inline-block';
+      currentNested.classList.remove("active");
+      this.classList.remove("caret-down");
     }
+
+    // 🌓 OVERLAY (UNCHANGED BEHAVIOUR)
+   // 🔥 Always remove overlay when switching sections
+// 🔥 Always reset overlay first
+overlay.classList.remove("show");
+
+// Show overlay ONLY if About or Contact is OPEN
+if (
+  (this.classList.contains("about-caret") ||
+   this.classList.contains("contact-caret")) &&
+  currentNested.classList.contains("active")
+) {
+  overlay.classList.add("show");
+}
+
   });
 }
+
+
 
 
 
@@ -137,7 +139,6 @@ hamMenu.addEventListener('click', () => {
 })*/
 
   /*BACKGROUND color test*/
-
 
 
 
@@ -259,7 +260,8 @@ document.getElementById('nextBtn').addEventListener('click', nextSlide);
 document.getElementById('prevBtn').addEventListener('click', prevSlide);
 
 
-/*info button*/
+/*Art page btm */
+
 function toggleText() {
   const box = document.getElementById("infoBox");
   
@@ -269,3 +271,162 @@ function toggleText() {
   box.classList.toggle("active");
   btn.textContent = box.classList.contains("active") ? "Hide Info" : "Show Info";
 }
+
+/*print store modal*/
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  const gallery = document.querySelector('.product-grid');
+  const modal = document.getElementById('product-modal');
+  const modalImage = document.getElementById('modal-image');
+  const modalTitle = document.getElementById('modal-title');
+  const modalPrice = document.getElementById('modal-price');
+  const modalBuyButton = document.getElementById('modal-buy-button');
+  const closeBtn = document.querySelector('.close');
+
+  if (!gallery) return;
+
+  const products = Array.from(gallery.querySelectorAll('.product'));
+  let currentIndex = 0;
+
+  function openModal(index) {
+    const product = products[index];
+    if (!product) return;
+
+    currentIndex = index;
+    modal.style.display = 'flex';
+    modalImage.src = product.querySelector('img').src;
+    modalTitle.textContent = product.querySelector('h2').textContent;
+    modalPrice.textContent = product.querySelector('p').textContent;
+
+    const productId = product.dataset.productId;
+    if (productId) {
+      modalBuyButton.setAttribute('data-product-id', productId);
+      if (window.GoCommerce && typeof GoCommerce.renderButtons === 'function') {
+        GoCommerce.renderButtons();
+      }
+    }
+  }
+
+  products.forEach((product, index) => {
+    product.addEventListener('click', () => openModal(index));
+  });
+
+  closeBtn.addEventListener('click', () => modal.style.display = 'none');
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) modal.style.display = 'none';
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (modal.style.display !== 'flex') return;
+
+    if (e.key === 'ArrowRight') {
+      currentIndex = (currentIndex + 1) % products.length;
+      openModal(currentIndex);
+    } else if (e.key === 'ArrowLeft') {
+      currentIndex = (currentIndex - 1 + products.length) % products.length;
+      openModal(currentIndex);
+    } else if (e.key === 'Escape') {
+      modal.style.display = 'none';
+    }
+  });
+});
+
+/*Print store rendering*/
+document.addEventListener('DOMContentLoaded', () => {
+  const gallery = document.querySelector('.product-grid');
+  const modal = document.getElementById('product-modal');
+  const modalImage = document.getElementById('modal-image');
+  const modalTitle = document.getElementById('modal-title');
+  const modalPrice = document.getElementById('modal-price');
+  const modalBuyButton = document.getElementById('modal-paypal-button');
+  const sizeSelect = document.getElementById('size-select');
+  const closeBtn = document.querySelector('.close');
+
+  if (!gallery) return;
+
+  const products = Array.from(gallery.querySelectorAll('.product'));
+  let currentIndex = 0;
+
+  function renderPayPalButton(description, price) {
+    // Clear old button
+    modalBuyButton.innerHTML = '';
+
+    // Render new PayPal button
+    paypal.Buttons({
+      style: {
+        layout: 'vertical',
+        color: 'blue',
+        shape: 'rect',
+        label: 'pay',
+        height: 35
+      },
+      createOrder: (data, actions) => actions.order.create({
+        purchase_units: [{
+          description: description,
+          amount: { value: price }
+        }]
+      }),
+      onApprove: (data, actions) => actions.order.capture().then(details => {
+        alert(
+          `Transaction completed by ${details.payer.name.given_name} for ${description} (${sizeSelect.options[sizeSelect.selectedIndex].text})!`
+        );
+      })
+    }).render('#modal-paypal-button');
+  }
+
+  function openModal(index) {
+    const product = products[index];
+    if (!product) return;
+
+    currentIndex = index;
+    modal.style.display = 'flex';
+    modalImage.src = product.querySelector('img').src;
+    modalTitle.textContent = product.querySelector('h2').textContent;
+
+    // Default to current dropdown value
+    const price = sizeSelect.value;
+    modalPrice.textContent = `£${price}`;
+
+    // Render PayPal button
+    renderPayPalButton(modalTitle.textContent, price);
+  }
+
+  // Re-render PayPal button & update price when size changes
+  sizeSelect.addEventListener('change', () => {
+    const description = modalTitle.textContent;
+    const price = sizeSelect.value;
+
+    // Update visible price in modal
+    modalPrice.textContent = `£${price}`;
+
+    // Re-render PayPal button
+    renderPayPalButton(description, price);
+  });
+
+  // Hook up product clicks
+  products.forEach((product, index) => {
+    product.addEventListener('click', () => openModal(index));
+  });
+
+  // Close modal
+  closeBtn.addEventListener('click', () => modal.style.display = 'none');
+  window.addEventListener('click', (e) => {
+    if (e.target === modal) modal.style.display = 'none';
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (modal.style.display !== 'flex') return;
+
+    if (e.key === 'ArrowRight') {
+      currentIndex = (currentIndex + 1) % products.length;
+      openModal(currentIndex);
+    } else if (e.key === 'ArrowLeft') {
+      currentIndex = (currentIndex - 1 + products.length) % products.length;
+      openModal(currentIndex);
+    } else if (e.key === 'Escape') {
+      modal.style.display = 'none';
+    }
+  });
+});
