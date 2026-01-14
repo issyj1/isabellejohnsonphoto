@@ -1,67 +1,70 @@
+
+
 var toggler = document.getElementsByClassName("caret");
 var overlay = document.querySelector('.overlay');
 
+
 for (let i = 0; i < toggler.length; i++) {
-  toggler[i].addEventListener("click", function (e) {
-    e.stopPropagation();
-
-    // 🔍 Find nested menu (child FIRST, then sibling)
-    let currentNested =
-      this.querySelector(":scope > .nested") ||
-      this.nextElementSibling;
-
-    if (!currentNested || !currentNested.classList.contains("nested")) return;
-
+  toggler[i].addEventListener("click", function () {
+    const currentNested = this.nextElementSibling;
     const isCurrentlyActive = currentNested.classList.contains("active");
 
-    const isTopLevel =
-      this.classList.contains("portfolio-caret") ||
-      this.classList.contains("about-caret") ||
-      this.classList.contains("contact-caret");
+    const allNested = document.querySelectorAll(".nested");
+    const allCarets = document.querySelectorAll(".caret");
+    allNested.forEach(el => {
+      el.classList.remove("active");
 
-    // 🔒 CLOSE LOGIC
-    if (isTopLevel) {
-      // Close EVERYTHING
-      document.querySelectorAll(".nested.active").forEach(el => {
-        el.classList.remove("active");
+      const fadeItems = el.querySelectorAll(".fade-item");
+      fadeItems.forEach(item => {
+        item.style.transitionDelay = "0s";
       });
-      document.querySelectorAll(".caret.caret-down").forEach(el => {
-        el.classList.remove("caret-down");
-      });
-    } else {
-      // Close siblings at same depth
-      const parentUL = this.closest("ul");
-      parentUL.querySelectorAll(":scope > li > .nested.active").forEach(el => {
-        if (el !== currentNested) {
-          el.classList.remove("active");
-          el.parentElement.querySelector(".caret")?.classList.remove("caret-down");
-        }
-      });
-    }
 
-    // 🔁 TOGGLE CURRENT
+      const paragraphs = el.querySelectorAll("p");
+      paragraphs.forEach(p => {
+        p.style.transitionDelay = "0s";
+      });
+    });
+    allCarets.forEach(el => el.classList.remove("caret-down"));
+
+    // ⬇️ Target slideshow nav buttons
+    const nextBtn = document.getElementById("nextBtn");
+    const prevBtn = document.getElementById("prevBtn");
+
     if (!isCurrentlyActive) {
       currentNested.classList.add("active");
       this.classList.add("caret-down");
+
+      if (this.classList.contains("portfolio-caret")) {
+        const fadeItems = currentNested.querySelectorAll(".fade-item");
+        fadeItems.forEach((item, index) => {
+          item.style.transitionDelay = `${index * 0.2}s`;
+        });
+        overlay.classList.remove("show");
+
+        // Show slideshow buttons
+        nextBtn.style.display = 'inline-block';
+        prevBtn.style.display = 'inline-block';
+      }
+
+      if (this.classList.contains("about-caret") || this.classList.contains("contact-caret")) {
+        const paragraphs = currentNested.querySelectorAll("p");
+        paragraphs.forEach((p, index) => {
+          p.style.transitionDelay = `${index * 0.3}s`;
+        });
+        overlay.classList.add("show");
+
+        // Hide slideshow buttons
+        nextBtn.style.zIndex = '-60';
+prevBtn.style.zIndex = '-60';
+footer.style.zIndex = '-60';
+      }
     } else {
-      currentNested.classList.remove("active");
-      this.classList.remove("caret-down");
+      overlay.classList.remove("show");
+
+      // Show slideshow buttons
+      nextBtn.style.display = 'inline-block';
+      prevBtn.style.display = 'inline-block';
     }
-
-    // 🌓 OVERLAY (UNCHANGED BEHAVIOUR)
-   // 🔥 Always remove overlay when switching sections
-// 🔥 Always reset overlay first
-overlay.classList.remove("show");
-
-// Show overlay ONLY if About or Contact is OPEN
-if (
-  (this.classList.contains("about-caret") ||
-   this.classList.contains("contact-caret")) &&
-  currentNested.classList.contains("active")
-) {
-  overlay.classList.add("show");
-}
-
   });
 }
 
