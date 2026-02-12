@@ -129,6 +129,11 @@ font-family: Helvetica;
     z-index: 4;
 }
 
+#footer::hover {
+    background-color: rgba(250, 250, 250, 0.8);
+    color: rgb(0, 195, 255);
+}
+
 #footer.hide {
   opacity: 0;
 }
