@@ -608,7 +608,7 @@ grid-template-columns: 1fr;
   position: absolute;
   bottom: 25px;
   left: 25px;
-  background: #f6ff00;
+  background: #fafafa;
   border: none;
   padding: 10px 16px;
   border-radius: 6px;
@@ -618,7 +618,7 @@ grid-template-columns: 1fr;
   transition: background 0.3s;
 }
 .expand-btn:hover {
-  background: transparent;
+  background: yellow;
 }
 
 /* Hidden text */
