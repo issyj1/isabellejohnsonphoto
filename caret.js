@@ -272,7 +272,7 @@ function toggleText() {
   
 
   box.classList.toggle("active");
-  btn.textContent = box.classList.contains("active") ? "Hide Info" : "Show Info";
+  btn.textContent = box.classList.contains("active") ? "+" : "+";
 }
 
 /*print store modal*/
