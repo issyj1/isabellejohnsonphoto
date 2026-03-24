@@ -632,7 +632,7 @@ grid-template-columns: 1fr;
   padding-left: 10px;
   bottom: 55px;
   left: 0px;
-  background: rgba(250, 250, 250, 0.6);
+  background: rgb(250, 250, 250);
   border-radius: 8px;
   font-size: 13px;
   line-height: 1.5;
