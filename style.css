@@ -644,11 +644,11 @@ grid-template-columns: 1fr;
 
 @media only screen and (max-width: 430px) {
   .expand-btn {
-    bottom: 30px;
+    bottom: 45px;
   }
 
   .hidden-text {
-    max-width: 80%;
+    max-width: 90%;
     font-size: 14px;
   }
 }
