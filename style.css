@@ -650,6 +650,8 @@ grid-template-columns: 1fr;
   .hidden-text {
     max-width: 100%;
     font-size: 14px;
+   bottom: 65px;
+
   }
 }
 
