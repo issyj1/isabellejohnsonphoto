@@ -571,7 +571,11 @@ div#slide1.slide, div#slide2.slide {
 @media only screen and (max-width: 750px) {
   .container {
 grid-template-columns: 1fr 1fr 1fr;
+margin: 100px;
   }
+  .container img {
+    min-width: 100px;
+  } 
 }
 @media only screen and (max-width: 430px) {
   .container2 {
