@@ -636,6 +636,7 @@ grid-template-columns: 1fr;
   border-radius: 8px;
   font-size: 13px;
   line-height: 1.5;
+    color: black;
 }
 
 .hidden-text.active {
