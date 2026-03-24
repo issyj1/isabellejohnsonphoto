@@ -642,6 +642,20 @@ grid-template-columns: 1fr;
   display: block;
 }
 
+@media only screen and (max-width: 430px) {
+  .expand-btn {
+    bottom: 30px;
+  }
+
+  .hidden-text {
+  
+  margin: 25px;
+  padding-left: 10px;
+  bottom: 55px;
+  left: 0px;
+  }
+}
+
 /* test for the next over the images */
 
 /* Next & previous buttons */
