@@ -648,11 +648,8 @@ grid-template-columns: 1fr;
   }
 
   .hidden-text {
-  
-  margin: 25px;
-  padding-left: 10px;
-  bottom: 55px;
-  left: 0px;
+    max-width: 80%;
+    font-size: 14px;
   }
 }
 
