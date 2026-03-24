@@ -622,6 +622,8 @@ grid-template-columns: 1fr;
 }
 
 /* Hidden text */
+
+/* Hidden text */
 .hidden-text {
   display: none;
   position: absolute;
@@ -639,7 +641,16 @@ grid-template-columns: 1fr;
 .hidden-text.active {
   display: block;
 }
-
+@media only screen and (max-width: 430px) {
+  .expand-btn {
+    top: 25px;
+    right: 25px;
+  }
+  .hidden-text {
+    top: 55px;
+    right: 0px;
+  }
+}
 /* test for the next over the images */
 
 /* Next & previous buttons */
