@@ -547,10 +547,15 @@ div#slide1.slide, div#slide2.slide {
   grid-template-columns: 1fr 1fr 1fr 1fr; /* Two equal columns */
   gap: 20px; /* Horizontal gap between the columns */
   margin: 170px;
+  margin-left: 20%;
+  margin-right: 20%;
   padding-bottom: 25px;
-
+  
 }
 
+.container img {
+  min-width: 80px;
+}
 .container img:hover{
   transform: scale(1.02) translateY(-5px);
 
@@ -608,7 +613,7 @@ grid-template-columns: 1fr;
   position: absolute;
   bottom: 25px;
   left: 25px;
-  background: #fafafa;
+  background: #f6ff00;
   border: none;
   padding: 10px 16px;
   border-radius: 6px;
@@ -618,7 +623,7 @@ grid-template-columns: 1fr;
   transition: background 0.3s;
 }
 .expand-btn:hover {
-  background: yellow;
+  background: transparent;
 }
 
 /* Hidden text */
@@ -636,25 +641,22 @@ grid-template-columns: 1fr;
   border-radius: 8px;
   font-size: 13px;
   line-height: 1.5;
-    color: black;
 }
 
 .hidden-text.active {
   display: block;
 }
-
 @media only screen and (max-width: 430px) {
   .expand-btn {
-    bottom: 55px;
+    bottom: 45px;
   }
 
   .hidden-text {
-    max-width: 100%;
+    max-width: 90%;
     font-size: 14px;
-   bottom: 65px;
-
   }
 }
+
 
 /* test for the next over the images */
 
@@ -1142,7 +1144,8 @@ ul, #myUL, li, .nested {
           bottom: 0px;
           left: 0;
           padding-top: 10px;
-          background-color: #fafafa;            
+          background-color: #fafafa;   
+         
       }
 
      
